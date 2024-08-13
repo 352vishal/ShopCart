@@ -1,0 +1,34 @@
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+.fa-trash:before {
+    content: "\f1f8";
+    cursor: pointer;
+}
+.fa-pen-to-square:before {
+    content: "\f044";
+    cursor: pointer;
+
+}
+.nav-item h3{
+    padding-top: 15px;
+}
+
+.container {
+    position: relative;
+    top: 70px;
+    margin-bottom: 100px;
+    overflow-x: auto;
+}
+
+.table-box {
+  overflow-x: auto;
+}
+
+    /* responsive table */
+
+    @media screen and (max-width: 600px) {
+      button.btn.btn-info {
+        margin-bottom: 17px;
+    }
+    }

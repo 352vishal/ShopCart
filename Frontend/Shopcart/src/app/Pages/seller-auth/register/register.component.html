@@ -1,0 +1,73 @@
+
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+  <div class="wrapper">
+    <form class="login-box" [formGroup]="registerForm" (ngSubmit)="submitDetails()">
+      <div class="login-header">
+        <span>register</span>
+      </div>
+
+      <small *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="block p-error">
+      <div *ngIf="fullName.errors?.['required']">Name is required.</div>
+      <div *ngIf="fullName.errors?.['pattern']">Enter a valid Name</div>
+      </small>
+
+      <div class="input_box">
+        <input type="text" class="input-field"  formControlName="fullName" required>
+        <label  class="label">Full Name</label>
+        <i class="bx bx-user icon"></i>
+      </div>
+
+      <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+      </small>
+
+      <div class="input_box">
+        <input type="text"  class="input-field"  formControlName="email" required>
+        <label  class="label">Email</label>
+        <i class=" icon"><i class="fa fa-envelope" aria-hidden="true"></i></i>
+      </div>
+
+      <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+        <div *ngIf="password.errors?.['required']">Password is required.</div>
+      </small>
+
+      <div class="input_box">
+        <input type="password"  class="input-field" formControlName="password" required>
+        <label class="label">Password</label>
+        <i class="bx bx-lock-alt icon" id="togglePassword"></i>
+      </div>
+
+      <small *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="block p-error">
+      <div *ngIf="confirmPassword.errors?.['required']"> Confirm the password </div>
+      </small>
+      <small class="block p-error" *ngIf="registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid">
+        Password should match
+      </small>
+
+      <div class="input_box">
+        <input type="password"  class="input-field" formControlName="confirmPassword" required>
+        <label  class="label">Confirm Password</label>
+        <i class="bx bx-lock-alt icon" id="togglePassword"></i>
+      </div>
+
+      <div class="remember-forgot">
+
+        <div class="remember-me">
+          <input type="checkbox" id="remember">&nbsp; 
+          <label for="remember"> Remember me </label>
+        </div>
+        
+      </div>
+
+      <div class="input_box">
+        <input type="submit" [disabled]="registerForm.invalid" class="input-submit" value="Ragister">
+      </div>
+      <div class="register">
+        <span>If you have an account ? <a routerLink="/login">Login</a></span>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,60 @@
+<div class="container">
+  <h1 style="text-align: center;">Update Product</h1>
+
+  <form (ngSubmit)="updateFiled(updateData.value)" #updateData="ngForm">
+
+    <label for="productId" class="form-label">*Product ID:</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="fa-regular fa-id-card"></i></span>
+    <input type="text" class="form-control" aria-label="productId" aria-describedby="basic-addon1" name="id" ngModel="{{update?.id}}">
+  </div>
+
+  <label for="productName" class="form-label">*Product Name:</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+    <input type="text" class="form-control" aria-label="productName" aria-describedby="basic-addon1" name="productName" ngModel="{{update?.productName}}">
+  </div>
+
+  <label for="productPrice" class="form-label">*Product Price:</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-indian-rupee-sign"></i></span>
+    <input type="text" class="form-control" aria-label="productPrice" aria-describedby="basic-addon1" name="productPrice" ngModel="{{update?.productPrice}}">
+  </div>
+
+  <label for="productColour" class="form-label">*Product Colour:</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-palette"></i></span>
+    <input type="text" class="form-control" aria-label="productColour" aria-describedby="basic-addon1" name="productColour" ngModel="{{update?.productColour}}">
+  </div>
+
+  <label for="productQuantity" class="form-label">*Stock Quantity:</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calculator"></i></span>
+    <input type="text" class="form-control" aria-label="productQuantity" aria-describedby="basic-addon1" name="productQuantity" ngModel="{{update?.productQuantity}}">
+  </div>
+
+  <label for="productCategory" class="form-label">*Product Category:</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-list"></i></span>
+    <input type="text" class="form-control" aria-label="productCategory" aria-describedby="basic-addon1" name="productCategory" ngModel="{{update?.productCategory}}">
+  </div>
+
+  <label for="productImage" class="form-label">*Product Image:</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-image"></i></span>
+    <input type="file" class="form-control" aria-label="productImage" aria-describedby="basic-addon1">
+  </div>
+
+  <label for="productDis" class="form-label">Description of your Product:</label>
+  <div class="input-group">
+    <span class="input-group-text"><i class="fa-solid fa-audio-description"></i></span>
+    <textarea class="form-control" aria-label="With textarea" name="productDescription" ngModel="{{update?.productDescription}}"></textarea>
+  </div><br><br>
+
+  <button type="submit" class="btn btn-success">Update Product</button>
+
+  </form>
+
+</div>
+
+

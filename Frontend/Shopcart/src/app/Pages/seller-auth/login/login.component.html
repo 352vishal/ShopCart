@@ -1,0 +1,52 @@
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+<br><br>
+  <div class="wrapper">
+    <form class="login-box" [formGroup]="loginForm" (ngSubmit)="loginUser()" >
+      <div class="login-header">
+        <span>Login</span>
+      </div>
+
+      <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+      </small>
+
+      <div class="input_box">
+        <input type="text" id="user" class="input-field"  formControlName="email" required>
+        <label for="user" class="label">Email</label>
+        <i class=" icon"><i class="fa fa-envelope" aria-hidden="true"></i></i>
+      </div>
+
+      <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+        <div *ngIf="password.errors?.['required']">Password is required.</div>
+      </small>
+
+      <div class="input_box">
+        <input type="password" id="pass" class="input-field" formControlName="password" required>
+        <label for="pass" class="label">Password</label>
+        <i class="bx bx-lock-alt icon" id="togglePassword"></i>
+      </div>
+
+      <div class="remember-forgot">
+
+        <div class="remember-me">
+          <input type="checkbox" id="remember">&nbsp; 
+          <label for="remember"> Remember me </label>
+        </div>
+        
+        <div class="forgot">
+          <a (click)="forgotPsw()">Forgot password ?</a>
+        </div>
+      </div>
+
+      <div class="input_box">
+        <input type="submit" [disabled]="loginForm.invalid" class="input-submit" value="Login">
+      </div>
+      <div class="register">
+        <span>Don't have an account ? <a routerLink="/register">Register</a></span>
+      </div>
+    </form>
+  </div>

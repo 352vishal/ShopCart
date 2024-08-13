@@ -1,0 +1,160 @@
+
+      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      
+    <div class="container"> <!-- open container -->
+       <div class="row"> <!--  open row -->
+         
+         <div id="form-header" class="col-12">
+           <h1 id="title">Add Products</h1>
+         </div>
+       </div> <!--  close row --> 
+      
+      <div class="row"> <!--  open row -->    
+          <div id="form-tagline" class="col-md-4">
+              <div class="form-tagline">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  <h2>Add Details</h2>
+                  <p id="description" class="lead">Add your desire Products</p>
+              </div>
+          </div>
+         
+		      <div id="form-content" class="col-md-8">
+            
+            <form id="survey-form" [formGroup]="addProduct" (ngSubmit)="sellerProduct()"> <!-- open form -->
+                       
+              <!-- Product Id Input Filed -->
+              <span style="color: red;" *ngIf="productId && productId.invalid && productId.touched">*Filed are required</span>
+                <div class="row form-group">
+                   <div class="col-sm-3">
+                    <label id="name-label" class="control-label" for="productId">*Product ID:</label>
+                   </div>
+                  
+                   <div class="input-group col-sm-9">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon-name"><i class="fa-regular fa-id-card"></i></span>
+                     </div>                   
+                     <input id="productId" type="text" class="form-control" placeholder="Please Enter Your Product ID" name="productId" formControlName="productId">
+                   </div>
+                </div>
+                 
+              <!-- Product Name Input Filed -->
+              <span style="color: red;" *ngIf="productName && productName.invalid && productName.touched">*Filed are required</span> 
+                <div class="form-group row">
+                   <div class="col-sm-3">
+                     <label id="email-label" class="control-label" for="productName">*Product Name:</label>
+                   </div>
+                 
+                   <div class="input-group col-sm-9">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon-mail"><i class="fa-solid fa-user"></i></span>
+                     </div>
+                     <input type="text" class="form-control" id="productName" placeholder="Enter Your Product Name" name="productName" formControlName="productName">
+                   </div>
+                </div>
+
+              <!-- Product Price Input Filed -->
+              <span style="color: red;" *ngIf="productPrice && productPrice.invalid && productPrice.touched">*Filed are required</span> 
+                <div class="form-group row">
+                  <div class="col-sm-3">
+                    <label id="email-label" class="control-label" for="productPrice">*Product Price:</label>
+                  </div>
+                
+                  <div class="input-group col-sm-9">
+                    <div class="input-group-prepend">
+                       <span class="input-group-text" id="basic-addon-mail"><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="productPrice" placeholder="Enter Your Product Price" name="productPrice" formControlName="productPrice">
+                  </div>
+               </div>
+
+               <!-- Product Colour Input Filed -->
+              <span style="color: red;" *ngIf="productColour && productColour.invalid && productColour.touched">*Filed are required</span> 
+               <div class="form-group row">
+                <div class="col-sm-3">
+                  <label id="email-label" class="control-label" for="productColour">*Product Colour:</label>
+                </div>
+              
+                <div class="input-group col-sm-9">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text" id="basic-addon-mail"><i class="fa-solid fa-palette"></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="productColour" placeholder="Enter Your Product Colour" name="productColour" formControlName="productColour">
+                </div>
+             </div>
+                 
+              <!-- Product Quantity Input Filed -->
+              <span style="color: red;" *ngIf="productQuantity && productQuantity.invalid && productQuantity.touched">*Filed are required</span> 
+                <div class="form-group row">
+                   <div class="col-sm-3">
+                     <label id="number-label" class="control-label" for="stockQuantity">*Stock Quantity:</label>
+                   </div>
+                 
+                   <div class="input-group col-sm-9">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon-room"><i class="fa-solid fa-calculator"></i></span>
+                     </div>
+                     <input type="text" class="form-control" id="stockQuantity" placeholder="Enter Your Stock Quantity" name="stockQuantity" formControlName="productQuantity">
+                   </div>
+                 </div>
+
+              <!-- Product Category Input Filed -->
+              <span style="color: red;" *ngIf="productCategory && productCategory.invalid && productCategory.touched">*Filed are required</span> 
+                 <div class="form-group row">
+                    <div class="col-sm-3">
+                      <label id="number-label" class="control-label" for="productCategory">*Product Category:</label>
+                    </div>
+                  
+                    <div class="input-group col-sm-9">
+                      <div class="input-group-prepend">
+                         <span class="input-group-text" id="basic-addon-room"><i class="fa-solid fa-list"></i></span>
+                      </div>
+                      <input type="text" class="form-control" id="productCategory" placeholder="Enter Your Product Category" name="productCategory" formControlName="productCategory">
+                    </div>
+                </div>
+
+              <!-- Product Image Input Filed -->
+              <span style="color: red;" *ngIf="productImage && productImage.invalid && productImage.touched">*Filed are required</span> 
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                      <label id="number-label" class="control-label" for="productImage">*Product Image:</label>
+                    </div>
+                  
+                    <div class="input-group col-sm-9">
+                      <div class="input-group-prepend">
+                         <span class="input-group-text" id="basic-addon-room"><i class="fa-solid fa-image"></i>&nbsp;&nbsp; <img style="width: 10%;" [src]="img"/></span>
+                      </div>
+                      <input type="file" (change)="selectFile($event)" class="form-control" id="productImage" name="productImage" formControlName="productImage">
+                    </div>
+                </div>
+                     
+              <!-- Product Description Input Filed -->
+              <span style="color: red;" *ngIf="productDescription && productDescription.invalid && productDescription.touched">*Filed are required</span>
+              <div class="form-group row"> 
+                 <div class="col-sm-3">
+                   <label class="control-label" for="comment">Description of your Product:</label>
+                 </div>
+                  
+                 <div class="input-group col-sm-9">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon-mail"><i class="fa-solid fa-audio-description"></i></span>
+                     </div>
+                  <textarea class="form-control" rows="5" id="comment" name="productDescription" formControlName="productDescription"></textarea>
+                 </div>  
+              </div>
+                
+              <div class="form-group row">
+                <div class="col-sm-12 submit-button">
+                  <button [disabled]="addProduct.invalid" type="submit" id="submit" class="btn btn-default" aria-pressed="true">Add Product</button>
+                </div>
+              </div>
+                               
+            </form> <!-- close form -->
+
+		    </div> <!-- close form content div -->
+               
+      </div> <!-- close row -->
+    </div><!--  close container -->
+  
