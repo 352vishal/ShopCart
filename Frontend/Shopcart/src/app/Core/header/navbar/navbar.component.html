@@ -16,7 +16,13 @@
         <li><a routerLink="login" class="nav-login"><i class="fa-solid fa-user"></i></a></li>
         <li><a ><mat-icon matBadge="1" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
       </ul>
-         <ul class="links" *ngSwitchCase="'seller'">
+      <ul class="links" *ngSwitchCase="'seller'">
+        <!-- Seller name with profile image -->
+        <p-chip [ngStyle]="{'margin-top': '17px'}"
+        label="{{fullName}}" 
+        image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" 
+        alt="Avatar image" 
+        />
         <li><a><i class="fa-solid fa-house"></i></a></li>
         <li><a (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
         <li><a ><mat-icon matBadge="1" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>

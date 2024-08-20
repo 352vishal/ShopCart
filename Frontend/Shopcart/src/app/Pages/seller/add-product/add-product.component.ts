@@ -67,7 +67,6 @@ sellerProduct(){
     response => {
       console.log(response);
       if(response){
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: "Product Details Submitted successfully" });
         this.router.navigate(['seller-home']);
       }
     },
@@ -75,7 +74,12 @@ sellerProduct(){
       this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.message });
     }
   )
+    setTimeout(() => {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: "Product Details Submitted successfully" });
+  }, 200);
 }
+
+
 
 
 // Image Picker

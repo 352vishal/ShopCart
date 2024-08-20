@@ -18,8 +18,8 @@ export class SellerHomeComponent {
   // Get product details propertie
   products: any =[];
 
-  // Display seller name on navbar  
-  sellerName:string="";
+  // Display User FullName from Token
+  // fullName : string = "";
 
   // Search button property
   searchResult:undefined|Product[];
@@ -35,28 +35,17 @@ export class SellerHomeComponent {
   // Table Pagination propertie
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  // Display User FullName from Token
-  fullName : string = "";
-
   constructor(private router: Router,private auth: AuthService, private ProductsService: ProductsService,private messageService: MessageService){}
 
   ngOnInit(){
-
     // Display User FullName from Token
-    this.ProductsService.getFullNameFromStore()
-    .subscribe(val=>{
-      const fullNameFromToken = this.auth.getfullNameFromToken();
-      this.fullName = val || fullNameFromToken
-    });
-
+    // this.ProductsService.getFullNameFromStore()
+    // .subscribe(val=>{
+    //   const fullNameFromToken = this.auth.getfullNameFromToken();
+    //   this.fullName = val || fullNameFromToken
+    // });
     // This method is responsible for fetching the list of products
     this.listOfProduct();
-    // Get Seller Name from local storage and display on navbar
-    if(localStorage.getItem('seller')){
-      let sellerStore=localStorage.getItem('seller');
-      let sellerData =sellerStore && JSON.parse(sellerStore)[1];
-      this.sellerName=sellerData.email;
-   }
   }
 
    // The listOfProduct function calls from the "getProductList" method from the "Product" Service Get request
@@ -69,7 +58,6 @@ export class SellerHomeComponent {
         this.dataSource = new MatTableDataSource(this.products);
         this.dataSource.paginator = this.paginator;
       }
-      
     })
   }
 
@@ -80,11 +68,13 @@ export class SellerHomeComponent {
       if(confirm('Are you sure you want to delete this product?'))
       this.listOfProduct();
       console.log(response);
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: "Delete Product Successfully" });
     },
     error => {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.message });
-    })
+    });
+    setTimeout(() => {
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: "Delete Product Successfully" });
+    }, 200);
   }
 
   // navigate to add product page

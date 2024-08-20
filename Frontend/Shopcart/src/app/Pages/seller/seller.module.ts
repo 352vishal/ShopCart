@@ -2,9 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SellerRoutingModule } from './seller-routing.module';
 
+// prime Ng module
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 // Form Module
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
-
 
 // Angumar Material Modules
 import {MatIconModule} from '@angular/material/icon';
@@ -13,7 +18,6 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule,MatTableDataSource} from '@angular/material/table';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
-
 
 // Components
 import { AddProductComponent } from './add-product/add-product.component';
@@ -38,7 +42,11 @@ import { UpdateProductComponent } from './update-product/update-product.componen
     MatTableModule,
     MatPaginatorModule,
     MatPaginator,
-    MatInputModule
+    MatInputModule,
+    CardModule,
+    InputTextModule,
+    ButtonModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     MatTableDataSource

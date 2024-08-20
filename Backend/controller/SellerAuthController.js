@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 const SellerToken = require("../model/SellerToken");
 const nodemailer = require("nodemailer");
 
-
 // Seller Register 
 const postRegisterSeller = async (req, res) => {
 

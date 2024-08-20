@@ -27,12 +27,15 @@ export class ForgotPasswordComponent {
       this.auth.sendEmail(data).subscribe(
         response => {
           console.log(response);
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: response.message });
         },
         error => {
           this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.message });
         }
       )
+      setTimeout(() => {
+        this.loginForm.reset();
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: "Email Sent Succesfully" });
+      }, 200);
       console.log(this.loginForm.value)
     }
 }

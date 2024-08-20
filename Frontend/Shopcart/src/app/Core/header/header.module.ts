@@ -9,6 +9,9 @@ import {MatBadgeModule} from '@angular/material/badge';
 // Components
 import { NavbarComponent } from './navbar/navbar.component';
 
+// Angular Material
+import { ChipModule } from 'primeng/chip';
+
 @NgModule({
   declarations: [
     NavbarComponent
@@ -17,7 +20,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CommonModule,
     HeaderRoutingModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    ChipModule
   ],
   exports: [
     NavbarComponent
