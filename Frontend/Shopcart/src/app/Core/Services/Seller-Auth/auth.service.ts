@@ -22,6 +22,17 @@ export class AuthService {
   // Display User FullName from Token
   private userPayload:any;
 
+    // Display User FullName from Token
+    private name$ = new BehaviorSubject<string>("");
+
+    // Display User FullName from Token
+    public getFullNameFromStore(){
+      return this.name$.asObservable();
+    }
+    // Display User FullName from Token
+    public setFullNameForStore(name:any){
+      this.name$.next(name)
+    }
 
   // Guard redirection Protection code
   isSellerLoggedIn= new BehaviorSubject<boolean>(false);

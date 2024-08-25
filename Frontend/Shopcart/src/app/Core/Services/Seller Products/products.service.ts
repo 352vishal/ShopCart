@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Product } from '../../Model/seller';
 import { constant } from '../../Constant/constant';
-import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -18,19 +17,6 @@ export class ProductsService {
     //     .set("auth-token", "" + localStorage.getItem("token")) // Add JWT token to the request header.
         
     // };
-
-  // Display User FullName from Token
-  private name$ = new BehaviorSubject<string>("");
-
-  // Display User FullName from Token
-  public getFullNameFromStore(){
-    return this.name$.asObservable();
-  }
-  // Display User FullName from Token
-  public setFullNameForStore(name:any){
-    this.name$.next(name)
-  }
-
 
   constructor(private http:HttpClient) { }
 
@@ -57,7 +43,9 @@ export class ProductsService {
   // The `getDeleteProduct` function Delete request on the server
   // to Delete the seller product details data on the mongoDb databse.
   DeleteProduct(id:number) {
-    return this.http.delete(`${constant.apiEndPoint.SellerUrl}/${id}`)
+    return this.http.delete(`${constant.apiEndPoint.SellerUrl}/${id}`,
+      // this.httpOptions
+    )
   }
 
   // The `getSingleProductsList` function Get request on the server
@@ -69,7 +57,9 @@ export class ProductsService {
   // The `updateProduct` function Put request on the server
   // to Update data used to product Id put data from the mongoDb databse.
   updateProduct(seller: Product) {
-    return this.http.put<Product>(`${constant.apiEndPoint.SellerUrl}/${seller.id}`, seller)
+    return this.http.put<Product>(`${constant.apiEndPoint.SellerUrl}/${seller.id}`, seller, 
+      // this.httpOptions
+    )
   }
 
 }

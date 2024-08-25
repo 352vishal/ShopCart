@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../Services/Seller-Auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ menuType: string = 'default';
 // Display User FullName from Token
 fullName : string = "";
 
-constructor(private route:Router){}
+constructor(private route:Router, private auth:AuthService){}
 ngOnInit() {
   this.route.events.subscribe((val: any) => {
     if (val.url) {
@@ -30,11 +31,12 @@ ngOnInit() {
 
 
   // Display User FullName from Token
-  //  this.ProductsService.getFullNameFromStore()
-  // .subscribe(val=>{
-  //   const fullNameFromToken = this.auth.getfullNameFromToken();
-  //       this.fullName = val || fullNameFromToken
-  //  });
+   this.auth.getFullNameFromStore()
+  .subscribe(val=>{
+    const fullNameFromToken = this.auth.getfullNameFromToken();
+        this.fullName = val || fullNameFromToken
+   });
+   
 };
 
 
