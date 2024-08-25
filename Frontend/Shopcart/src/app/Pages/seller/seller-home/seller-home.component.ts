@@ -63,18 +63,16 @@ export class SellerHomeComponent {
 
   // The deleteProduct function calls from the "getDeleteProduct" method from the "Product" Service Delete request
   deleteProduct(id: number) {
+    if(confirm('Are you sure you want to delete this product?'))
     this.ProductsService.DeleteProduct(id).subscribe(      
       response => {
-      if(confirm('Are you sure you want to delete this product?'))
       this.listOfProduct();
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: "Delete Product Successfully" });
       console.log(response);
     },
     error => {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.message });
     });
-    setTimeout(() => {
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: "Delete Product Successfully" });
-    }, 200);
   }
 
   // navigate to add product page

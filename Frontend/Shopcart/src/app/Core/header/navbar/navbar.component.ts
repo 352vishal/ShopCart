@@ -19,7 +19,7 @@ ngOnInit() {
   this.route.events.subscribe((val: any) => {
     if (val.url) {
       // check conditions if user 'token' store in local storage broswer then condtion work othwise not work
-      if (localStorage.getItem('token') && val.url.includes('seller')) {
+      if (val.url.includes('seller')) {
         this.menuType = 'seller';
       }
       else {

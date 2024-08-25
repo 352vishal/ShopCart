@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 import { AuthService } from '../../../Core/Services/Seller-Auth/auth.service';
 
 @Component({
@@ -17,8 +16,7 @@ export class LoginComponent {
     password: ['', Validators.required]
   })
 
-  constructor( private fb: FormBuilder,private authService: AuthService, private router: Router,
-               private msgService: MessageService) { }
+  constructor( private fb: FormBuilder,private authService: AuthService, private router: Router) { }
                   
 
  ngOnInit(): void {

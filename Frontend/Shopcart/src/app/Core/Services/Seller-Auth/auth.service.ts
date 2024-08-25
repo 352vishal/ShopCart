@@ -1,26 +1,30 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { User } from '../../Model/seller-auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { constant } from '../../Constant/constant';
 import { MessageService } from 'primeng/api';
 import {JwtHelperService} from '@auth0/angular-jwt'
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private router:Router, private msgService: MessageService) {
+  constructor(private http: HttpClient, private router:Router, private msgService: MessageService,
+              @Inject(PLATFORM_ID) private platformId: Object
+  ) {
     this.userPayload = this.decodedToken();
    }
   
-  // Guard redirection Protection code
-  isSellerLoggedIn= new BehaviorSubject<boolean>(false);
-
   // Display User FullName from Token
   private userPayload:any;
+
+
+  // Guard redirection Protection code
+  isSellerLoggedIn= new BehaviorSubject<boolean>(false);
 
 
   /* The `registerUser` function sends a POST request to the server to register a new user with the 
@@ -51,10 +55,12 @@ export class AuthService {
   login status accordingly.*/
 
   reloadSeller(){
-    if(localStorage.getItem('token')){
-      this.isSellerLoggedIn.next(true)
-      this.router.navigate(['seller-home'])
+    if (isPlatformBrowser(this.platformId)) {
+     if(localStorage.getItem('token')){
+    this.isSellerLoggedIn.next(true)
+    this.router.navigate(['seller-home'])
     }
+  }
   }
 
   // Reset password sendLink post method 
@@ -69,17 +75,21 @@ export class AuthService {
 
   // Display User FullName from Token
   getToken(){
-    if(localStorage.getItem('token')){
-      this.isSellerLoggedIn.next(true)
-    }
-    return localStorage.getItem('token');
+    if (isPlatformBrowser(this.platformId)) {
+       if(localStorage.getItem('token')){
+       this.isSellerLoggedIn.next(true)
+     }
+   }
+   return localStorage.getItem('token');
   }
   // Display User FullName from Token
   decodedToken(){
-    const jwtHelper = new JwtHelperService();
-    const token = this.getToken()!;
-    console.log(jwtHelper.decodeToken(token))
-    return jwtHelper.decodeToken(token)
+    if (isPlatformBrowser(this.platformId)) {
+      const jwtHelper = new JwtHelperService();
+      const token = this.getToken()!;
+      console.log(jwtHelper.decodeToken(token))
+      return jwtHelper.decodeToken(token)
+  }
   }
   // Display User FullName from Token
   getfullNameFromToken(){

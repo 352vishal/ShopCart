@@ -25,7 +25,7 @@ ngOnInit() {
 getHome() {
   this.product.getSellerProductList().subscribe((data: any) => {
     this.products = data;
-    console.log(this.products);
+    // console.log(this.products);
   });
 }
 }

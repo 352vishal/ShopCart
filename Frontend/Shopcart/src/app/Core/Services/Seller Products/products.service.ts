@@ -12,12 +12,12 @@ export class ProductsService {
 
     // Http Options
     // delete or update data from mongodb database
-    private httpOptions = {
-      headers: new HttpHeaders()
-        .set("Content-Type", "application/json")
-        .set("auth-token", "" + localStorage.getItem("token")) // Add JWT token to the request header.
+    // private httpOptions = {
+    //   headers: new HttpHeaders()
+    //     .set("Content-Type", "application/json")
+    //     .set("auth-token", "" + localStorage.getItem("token")) // Add JWT token to the request header.
         
-    };
+    // };
 
   // Display User FullName from Token
   private name$ = new BehaviorSubject<string>("");
@@ -57,7 +57,7 @@ export class ProductsService {
   // The `getDeleteProduct` function Delete request on the server
   // to Delete the seller product details data on the mongoDb databse.
   DeleteProduct(id:number) {
-    return this.http.delete(`${constant.apiEndPoint.SellerUrl}/${id}`,this.httpOptions)
+    return this.http.delete(`${constant.apiEndPoint.SellerUrl}/${id}`)
   }
 
   // The `getSingleProductsList` function Get request on the server
@@ -69,7 +69,7 @@ export class ProductsService {
   // The `updateProduct` function Put request on the server
   // to Update data used to product Id put data from the mongoDb databse.
   updateProduct(seller: Product) {
-    return this.http.put<Product>(`${constant.apiEndPoint.SellerUrl}/${seller.id}`, seller, this.httpOptions)
+    return this.http.put<Product>(`${constant.apiEndPoint.SellerUrl}/${seller.id}`, seller)
   }
 
 }
