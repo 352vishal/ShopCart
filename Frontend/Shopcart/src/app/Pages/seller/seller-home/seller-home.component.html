@@ -17,10 +17,10 @@
             </ul>
             <button type="button" class="btn btn-info" (click)="addProduct()">Add Product</button>&nbsp;&nbsp;
             <!-- Search Products Filter Products button-->
-            <mat-form-field>
-              <mat-label>Search</mat-label>
-              <input matInput (keyup)="applyFilter($event)" #input>
-            </mat-form-field>
+            <form class="d-flex" role="search">
+              <input matInput (keyup)="applyFilter($event)" #input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
           </div>
         </div>
       </nav>

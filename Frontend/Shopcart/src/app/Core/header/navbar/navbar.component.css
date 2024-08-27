@@ -176,6 +176,9 @@ nav .nav-content .links {
 
 /* Responsive code start */
 @media screen and (max-width: 1250px) {
+  .home-side-nav{
+    display: none;
+  }
   .wrapper nav {
     max-width: 100%;
     padding: 0 20px;
@@ -197,6 +200,9 @@ nav .nav-content .links {
 }
 
 @media screen and (max-width: 900px) {
+  /* p-button.p-element {
+    display: none;
+} */
   .wrapper .menu-icon {
     display: block;
   }

@@ -39,19 +39,19 @@ export class ProductsService {
   getSellerProductList(){
     return this.http.get(constant.apiEndPoint.SellerUrl);
   }
-  
+
+  // The `getSingleProductsList` function Get request on the server
+  // to Get the Single Products "Id" used to update a product in API by its ID
+  getSingleSellerProductsList(id : any) {
+    return this.http.get<Product>(`${constant.apiEndPoint.SellerUrl}/${id}`)
+  }
+
   // The `getDeleteProduct` function Delete request on the server
   // to Delete the seller product details data on the mongoDb databse.
   DeleteProduct(id:number) {
     return this.http.delete(`${constant.apiEndPoint.SellerUrl}/${id}`,
       // this.httpOptions
     )
-  }
-
-  // The `getSingleProductsList` function Get request on the server
-  // to Get the Single Products "Id" used to update a product in API by its ID
-  getSingleSellerProductsList(id : any) {
-    return this.http.get<Product>(`${constant.apiEndPoint.SellerUrl}/${id}`)
   }
 
   // The `updateProduct` function Put request on the server

@@ -44,6 +44,7 @@
     "ng2-file-upload": "^7.0.1",
     "ngx-bootstrap": "^12.0.0",
     "ngx-pagination": "^6.0.3",
+    "primeicons": "^7.0.0",
     "primeng": "^17.18.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

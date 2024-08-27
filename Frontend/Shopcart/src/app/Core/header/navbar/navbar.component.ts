@@ -9,6 +9,10 @@ import { AuthService } from '../../Services/Seller-Auth/auth.service';
 })
 export class NavbarComponent {
 
+// Sidenavbar properties 
+sidebarVisible: boolean = false;
+sidebarVisible2: boolean = false;
+
 // nevbar section change when user logged in
 menuType: string = 'default';
 

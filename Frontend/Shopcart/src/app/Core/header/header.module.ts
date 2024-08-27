@@ -5,12 +5,16 @@ import { HeaderRoutingModule } from './header-routing.module';
 // Angumar Material Modules
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
+import {ChipModule } from 'primeng/chip';
+import {SidebarModule } from 'primeng/sidebar';
+import {ButtonModule } from 'primeng/button';
+import {PanelMenuModule } from 'primeng/panelmenu';
+import {ToolbarModule } from 'primeng/toolbar';
+import {AvatarModule } from 'primeng/avatar';
 
 // Components
 import { NavbarComponent } from './navbar/navbar.component';
 
-// Angular Material
-import { ChipModule } from 'primeng/chip';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,12 @@ import { ChipModule } from 'primeng/chip';
     HeaderRoutingModule,
     MatIconModule,
     MatBadgeModule,
-    ChipModule
+    ChipModule,
+    SidebarModule,
+    ButtonModule,
+    PanelMenuModule,
+    ToolbarModule,
+    AvatarModule
   ],
   exports: [
     NavbarComponent
