@@ -5,7 +5,6 @@ import { Product } from '../../../Core/Model/seller';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MessageService } from 'primeng/api';
-import { AuthService } from '../../../Core/Services/Seller-Auth/auth.service';
 
 
 @Component({
@@ -17,9 +16,6 @@ export class SellerHomeComponent {
 
   // Get product details propertie
   products: any =[];
-
-  // Display User FullName from Token
-  // fullName : string = "";
 
   // Search button property
   searchResult:undefined|Product[];
@@ -35,15 +31,9 @@ export class SellerHomeComponent {
   // Table Pagination propertie
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private router: Router,private auth: AuthService, private ProductsService: ProductsService,private messageService: MessageService){}
+  constructor(private router: Router, private ProductsService: ProductsService,private messageService: MessageService){}
 
   ngOnInit(){
-    // Display User FullName from Token
-    // this.ProductsService.getFullNameFromStore()
-    // .subscribe(val=>{
-    //   const fullNameFromToken = this.auth.getfullNameFromToken();
-    //   this.fullName = val || fullNameFromToken
-    // });
     // This method is responsible for fetching the list of products
     this.listOfProduct();
   }
@@ -66,8 +56,8 @@ export class SellerHomeComponent {
     if(confirm('Are you sure you want to delete this product?'))
     this.ProductsService.DeleteProduct(id).subscribe(      
       response => {
-      this.listOfProduct();
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: "Delete Product Successfully" });
+              this.listOfProduct();
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: "Record deleted" });
       console.log(response);
     },
     error => {

@@ -5,7 +5,7 @@
     <input type="checkbox" id="show-menu">
     <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
     <div class="nav-content">
-        <p-button class="home-side-nav" icon="pi pi-bars" [link]="true" (onClick)="sidebarVisible = true" />
+        <p-button class="home-side-nav" icon="pi pi-bars" [link]="true" (onClick)="leftSidebar = true" />
       <div class="logo">
         <a routerLink="">
         <img class="logo-img" src="https://i.ibb.co/LRDshNz/img1.jpg" alt="ShopCart"> 
@@ -29,7 +29,7 @@
     </form>
     <ul class="links" *ngSwitchCase="'seller'">
       <p-button [ngStyle]="{'margin': '14px'}" type="button" class="mr-2" 
-      icon="pi pi-user" [rounded]="true" severity="info" [link]="true" (onClick)="sidebarVisible2 = true">
+      icon="pi pi-user" [rounded]="true" severity="info" [link]="true" (onClick)="rightSidebar = true">
       <p-avatar [ngStyle]="{'margin': '19px'}"
       image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
       </p-button>
@@ -41,7 +41,7 @@
 <div class="card flex justify-content-center">
 
   <!-- Left Side Menu -->
-  <p-sidebar [(visible)]="sidebarVisible">
+  <p-sidebar [(visible)]="leftSidebar">
     <div class=" flex justify-content-center">
       <ul [ngStyle]="{'list-style': 'none'}">
         <li>
@@ -58,7 +58,7 @@
   </p-sidebar>
 
   <!-- Right Side Menu -->
-  <p-sidebar [(visible)]="sidebarVisible2" position="right">
+  <p-sidebar [(visible)]="rightSidebar" position="right">
     <div class=" flex justify-content-center">
       <ul [ngStyle]="{'list-style': 'none'}">
         <li>
@@ -67,11 +67,19 @@
           image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" alt="Avatar image"/>
         </li><br>
         <li>
-          <a style="cursor: pointer; padding: 12px; color: black;" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-gear">&nbsp;&nbsp;Setting</i></a>
         </li><br>
         <li>
-          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-gear">&nbsp;&nbsp;Setting</i></a>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-user">&nbsp;&nbsp;Profile</i></a>
+        </li><br>
+        <li>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-lock">&nbsp;&nbsp;Privacy</i></a>
+        </li><br>
+        <hr><br>
+        <li>
+          <a (click)="rightSidebar = false" style="cursor: pointer; padding: 12px; color: black;" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
         </li>
+
       </ul>
   </div> 
 </p-sidebar>

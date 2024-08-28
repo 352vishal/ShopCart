@@ -1,7 +1,15 @@
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
-.fa-trash:before {
+
+.trash{
+    color: #f04949;
+    background: #fdf6f6;
+}
+.trash:hover{
+    background: #ff8888;
+}
+/* .fa-trash:before {
     content: "\f1f8";
     cursor: pointer;
 }
@@ -9,7 +17,7 @@
     content: "\f044";
     cursor: pointer;
 
-}
+} */
 .nav-item h3{
     padding-top: 15px;
 }
