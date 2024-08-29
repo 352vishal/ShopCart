@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Seller-Auth/auth.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -19,17 +20,19 @@ menuType: string = 'default';
 // Display User FullName from Token
 fullName : string = "";
 
-constructor(private route:Router, private auth:AuthService){}
+constructor(private route:Router, private auth:AuthService, @Inject(PLATFORM_ID) private platformId: Object){}
 ngOnInit() {
   this.route.events.subscribe((val: any) => {
     if (val.url) {
       // check conditions if user 'token' store in local storage broswer then condtion work othwise not work
-      if (val.url.includes('seller')) {
+      if (isPlatformBrowser(this.platformId)) {
+      if (localStorage.getItem('token')) {
         this.menuType = 'seller';
       }
       else {
         this.menuType = 'default';
       }
+    }
     }
   });
 
@@ -48,6 +51,8 @@ ngOnInit() {
 logout(){
   localStorage.removeItem('token');
   this.route.navigate(['login']);
+  localStorage.clear();
+  sessionStorage.clear();
 }
 
 }

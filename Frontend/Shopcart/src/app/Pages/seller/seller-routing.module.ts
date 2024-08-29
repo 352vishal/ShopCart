@@ -14,10 +14,12 @@ const routes: Routes = [
   {
     component: AddProductComponent,
     path: 'add-product',
+    canActivate: [authGuard]
   },
   {
     component: UpdateProductComponent,
     path: 'update-product/:id',
+    canActivate: [authGuard]
   },
 ];
 

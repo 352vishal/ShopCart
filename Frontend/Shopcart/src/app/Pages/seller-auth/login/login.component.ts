@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../Core/Services/Seller-Auth/auth.service';
+import { PlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,16 @@ export class LoginComponent {
     password: ['', Validators.required]
   })
 
-  constructor( private fb: FormBuilder,private authService: AuthService, private router: Router) { }
+  constructor( private fb: FormBuilder,private authService: AuthService, 
+  private router: Router,private platformLocation: PlatformLocation)
+  // This prevents the back button from navigating back to the login page.
+  // Agter logout it disable back button to navigating back again to the seller-home page
+   { 
+    history.pushState(null,'',location.href);
+    this.platformLocation.onPopState(()=> {
+      history.pushState(null,'',location.href);
+    });
+  }
                   
 
  ngOnInit(): void {

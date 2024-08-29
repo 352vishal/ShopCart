@@ -13,12 +13,11 @@
       </a>
     </div>
       <ul class="links" *ngSwitchCase="'default'">
-        <li><a routerLink=""><i class="fa-solid fa-house"></i></a></li>
         <li><a routerLink="login" class="nav-login"><i class="fa-solid fa-user"></i></a></li>
         <li><a ><mat-icon matBadge="1" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
       </ul>
       <ul class="links" *ngSwitchCase="'seller'">
-        <li><a><i class="fa-solid fa-house"></i></a></li>
+        <li><a routerLink="seller-home"><i class="fa fa-store"></i></a></li>
         <li><a ><mat-icon matBadge="1" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
       </ul>
     </div>
@@ -28,10 +27,8 @@
       <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
     </form>
     <ul class="links" *ngSwitchCase="'seller'">
-      <p-button [ngStyle]="{'margin': '14px'}" type="button" class="mr-2" 
-      icon="pi pi-user" [rounded]="true" severity="info" [link]="true" (onClick)="rightSidebar = true">
-      <p-avatar [ngStyle]="{'margin': '19px'}"
-      image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+      <p-button  type="button" [link]="true" (onClick)="rightSidebar = true">
+      <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
       </p-button>
     </ul>
   </nav>
@@ -67,10 +64,19 @@
           image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" alt="Avatar image"/>
         </li><br>
         <li>
-          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-gear">&nbsp;&nbsp;Setting</i></a>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-user">&nbsp;&nbsp;My Profile</i></a>
         </li><br>
         <li>
-          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-user">&nbsp;&nbsp;Profile</i></a>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-truck-fast">&nbsp;&nbsp;Orders</i></a>
+        </li><br>
+        <li>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-heart">&nbsp;&nbsp;Whishlist</i></a>
+        </li><br>
+        <li>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-bell">&nbsp;&nbsp;Notification</i></a>
+        </li><br>
+        <li>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-gear">&nbsp;&nbsp;Setting</i></a>
         </li><br>
         <li>
           <a style="cursor: pointer; padding: 12px;"><i class="fa fa-lock">&nbsp;&nbsp;Privacy</i></a>
