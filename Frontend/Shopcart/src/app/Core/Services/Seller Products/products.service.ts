@@ -18,6 +18,8 @@ export class ProductsService {
         
     // };
 
+  private httpOptions = {};
+
   constructor(private http:HttpClient) { }
 
   // The `postProducts` function sends a POST request on the server
@@ -50,7 +52,12 @@ export class ProductsService {
   // to Delete the seller product details data on the mongoDb databse.
   DeleteProduct(id:number) {
     return this.http.delete(`${constant.apiEndPoint.SellerUrl}/${id}`,
-      // this.httpOptions
+      this.httpOptions = {
+        headers: new HttpHeaders()
+          .set("Content-Type", "application/json")
+          .set("auth-token", "" + localStorage.getItem("token")) // Add JWT token to the request header.
+          
+      }
     )
   }
 
@@ -58,7 +65,12 @@ export class ProductsService {
   // to Update data used to product Id put data from the mongoDb databse.
   updateProduct(seller: Product) {
     return this.http.put<Product>(`${constant.apiEndPoint.SellerUrl}/${seller.id}`, seller, 
-      // this.httpOptions
+      this.httpOptions = {
+        headers: new HttpHeaders()
+          .set("Content-Type", "application/json")
+          .set("auth-token", "" + localStorage.getItem("token")) // Add JWT token to the request header.
+          
+      }
     )
   }
 
