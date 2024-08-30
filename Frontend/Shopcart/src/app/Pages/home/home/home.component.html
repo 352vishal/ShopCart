@@ -76,7 +76,7 @@
     <p>Summer Collection New Modern Design</p>
     <div class="pro-container">
       <div class="pro" *ngFor="let items of products">
-        <img [src]="items.productImage" alt="Carton Leave Tshirts">
+        <img (click)="productDetails(items._id)" [src]="items.productImage" alt="Carton Leave Tshirts">
         <div class="des">
           <span>adidas</span>
           <h5>{{items.productName}}</h5>

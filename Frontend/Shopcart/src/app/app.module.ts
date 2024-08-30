@@ -14,6 +14,7 @@ import { SellerModule } from './Pages/seller/seller.module';
 import { HeaderModule } from './Core/header/header.module';
 import { FooterModule } from './Core/footer/footer.module';
 import { HomeModule } from './Pages/home/home.module';
+import { ProductDetailModule } from './Pages/product-detail/product-detail.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HomeModule } from './Pages/home/home.module';
     SellerModule,
     HeaderModule,
     FooterModule,
-    HomeModule],
+    HomeModule,
+    ProductDetailModule],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent]
 })
