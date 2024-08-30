@@ -64,6 +64,7 @@
 		        		</div>
 	        			<p>{{productData.productDescription}}</p>
 	        			<div class="row">
+							<div>Color :<h3 [style.backgroundColor]="productData.productColour" class="product-color"></h3></div>
 	        				<div class="col-md-6">
 	        					<label for="size">Size</label>
 								<select id="size" name="size" class="form-control">
@@ -88,7 +89,7 @@
 							    <div class="qtyminus" (click)="handleQuantity('min')">-</div>
 							    <input type="text" name="quantity" value="{{productQuantity}}" class="qty">
 							    <div class="qtyplus" (click)="handleQuantity('plus')">+</div>
-							</form>					
+							</form><br>				
 								<div class = "purchase-info">
 									<button type = "button" class = "btn">
 									  Add to Cart <i class = "fas fa-shopping-cart"></i>

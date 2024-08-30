@@ -278,6 +278,12 @@
 
 /* Add to cart button code  */
 
+.product-color{
+    border: 3px solid #000;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
 .purchase-info{
 	margin: 1.5rem 0;
 }
