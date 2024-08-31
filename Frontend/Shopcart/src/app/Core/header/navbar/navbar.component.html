@@ -15,7 +15,7 @@
       <ul class="links" *ngSwitchCase="'default'">
         <li><a class="nav-login"><i class="fa-solid fa-user"></i></a></li>
         <li><a routerLink="login"><i class="fa fa-store"></i></a></li>
-        <li><a ><mat-icon matBadge="1" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
+        <li><a ><mat-icon matBadge="{{cartItems}}" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
       </ul>
       <ul class="links" *ngSwitchCase="'seller'">
         <li><a routerLink="seller-home"><i class="fa fa-store"></i></a></li>

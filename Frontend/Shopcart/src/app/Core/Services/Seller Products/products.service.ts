@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Product } from '../../Model/seller';
 import { constant } from '../../Constant/constant';
@@ -8,6 +8,9 @@ import { constant } from '../../Constant/constant';
   providedIn: 'root'
 })
 export class ProductsService {
+
+  // Add to cart EventEmitter
+  cartData = new EventEmitter<Product[] | []>();
 
     // Http Options
     // delete or update data from mongodb database
@@ -74,4 +77,29 @@ export class ProductsService {
     )
   }
 
+  // Add to cart functionality
+  localAddToCart(data: Product) {
+    let cartData = [];
+    let localCart = localStorage.getItem('localCart');
+    if (!localCart) {
+      localStorage.setItem('localCart', JSON.stringify([data]));
+    }
+    else {
+      cartData = JSON.parse(localCart);
+      cartData.push(data);
+      localStorage.setItem('localCart', JSON.stringify(cartData));
+    }
+    this.cartData.emit(cartData);
+  }
+
+  // Remove to cart functionality
+  removeItemFromCart(productId: any) {
+    let cartData = localStorage.getItem('localCart');
+    if (cartData) {
+      let items: Product[] = JSON.parse(cartData);
+      items = items.filter((item: Product) => productId !== item._id);
+      localStorage.setItem('localCart', JSON.stringify(items));
+      this.cartData.emit(items);
+    }
+  }
 }

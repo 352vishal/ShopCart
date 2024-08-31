@@ -91,10 +91,13 @@
 							    <div class="qtyplus" (click)="handleQuantity('plus')">+</div>
 							</form><br>				
 								<div class = "purchase-info">
-									<button type = "button" class = "btn">
+									<button *ngIf="!removeCart" (click)="addToCart()" type = "button" class = "btn">
 									  Add to Cart <i class = "fas fa-shopping-cart"></i>
 									</button>
-								</div>							
+									<button *ngIf="removeCart" (click)="removeToCart(productData._id)" type = "button" class = "btn">
+										Remove to Cart <i class = "fas fa-shopping-cart"></i>
+									</button>
+								</div>						
 	        			</div>
 	        		</div>
 	        	</div>

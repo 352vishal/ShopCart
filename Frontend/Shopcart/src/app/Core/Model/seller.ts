@@ -10,4 +10,5 @@ export interface Product {
     productCategory: string;
     productImage?:File
     productDescription: string;
+    quantity:undefined | number
 }
