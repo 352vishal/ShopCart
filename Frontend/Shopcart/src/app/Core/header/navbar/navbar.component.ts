@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Seller-Auth/auth.service';
 import { isPlatformBrowser } from '@angular/common';
 import { ProductsService } from '../../Services/Seller Products/products.service';
+import { UserAuthService } from '../../Services/User-Auth/user-auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,15 +17,19 @@ cartItems=0;
 
 // Sidenavbar properties 
 leftSidebar: boolean = false;
-rightSidebar: boolean = false;
+sellerRightSidebar: boolean = false;
+userRightSidebar: boolean = false;
 
 // nevbar section change when user logged in
 menuType: string = 'default';
 
-// Display User FullName from Token
-fullName : string = "";
+// Display Seller FullName from Token
+SellerfullName : string = "";
 
-constructor(private route:Router, private auth:AuthService, 
+// Display User FullName from Token
+UserfullName : string = "";
+
+constructor(private route:Router, private seller:AuthService, private user:UserAuthService,
             @Inject(PLATFORM_ID) private platformId: Object, private product:ProductsService){}
 ngOnInit() {
   this.route.events.subscribe((val: any) => {
@@ -33,6 +38,9 @@ ngOnInit() {
       if (isPlatformBrowser(this.platformId)) {
       if (localStorage.getItem('token')) {
         this.menuType = 'seller';
+      }
+      else if(localStorage.getItem('UserToken')){
+        this.menuType='user';
       }
       else {
         this.menuType = 'default';
@@ -53,11 +61,19 @@ ngOnInit() {
 
 
 
-  // Display User FullName from Token
-   this.auth.getFullNameFromStore()
+  // Display Seller FullName from Token
+   this.seller.getFullNameFromStore()
   .subscribe(val=>{
-    const fullNameFromToken = this.auth.getfullNameFromToken();
-        this.fullName = val || fullNameFromToken
+    const fullNameFromToken = this.seller.getfullNameFromToken();
+        this.SellerfullName = val || fullNameFromToken
+   });
+
+
+  // Display User FullName from Token
+  this.user.getFullNameFromStore()
+  .subscribe(val=>{
+    const fullNameFromToken = this.user.getfullNameFromToken();
+        this.UserfullName = val || fullNameFromToken
    });
    
 };
@@ -67,6 +83,13 @@ ngOnInit() {
 logout(){
   localStorage.removeItem('token');
   this.route.navigate(['login']);
+  localStorage.clear();
+  sessionStorage.clear();
+}
+
+UserLogout(){
+  localStorage.removeItem('UserToken');
+  this.route.navigate(['user-login']);
   localStorage.clear();
   sessionStorage.clear();
 }

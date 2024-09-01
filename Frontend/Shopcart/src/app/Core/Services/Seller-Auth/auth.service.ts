@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { User } from '../../Model/seller-auth';
+import { Seller } from '../../Model/seller-auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { constant } from '../../Constant/constant';
@@ -40,15 +40,15 @@ export class AuthService {
 
   /* The `registerUser` function sends a POST request to the server to register a new user with the 
    provided details. save on MongoDb Database*/
-  registerSeller(sellerDetails: User) {
-    return this.http.post<any>(`${constant.apiEndPoint.AuthUrl}/register`, sellerDetails);
+  registerSeller(sellerDetails: Seller) {
+    return this.http.post<any>(`${constant.apiEndPoint.AuthSeller}/register`, sellerDetails);
   }
 
   /* The `postUserByEmail` function sends a POST request on the 
      Seller Valid login details to the server with the 
      provided details. save on MongoDb Database*/
   postSellerByEmail(seller: any) {
-    return this.http.post<any>(`${constant.apiEndPoint.AuthUrl}/login`, seller)
+    return this.http.post<any>(`${constant.apiEndPoint.AuthSeller}/login`, seller)
     .subscribe(
       res => {
           localStorage.setItem("token", res.token);
@@ -76,12 +76,12 @@ export class AuthService {
 
   // Reset password sendLink post method 
   sendEmail(email: string){
-    return this.http.post<any>(`${constant.apiEndPoint.AuthUrl}/send-email`, email);
+    return this.http.post<any>(`${constant.apiEndPoint.AuthSeller}/send-email`, email);
   }
 
   // Reset password Reset post method 
   resetPassword(resetObj: any){
-    return this.http.post<any>(`${constant.apiEndPoint.AuthUrl}/reset-password`, resetObj);
+    return this.http.post<any>(`${constant.apiEndPoint.AuthSeller}/reset-password`, resetObj);
   }
 
   // Display User FullName from Token

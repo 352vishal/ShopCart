@@ -9,6 +9,7 @@ dotenv.config();
 // Import routes
 const productRoutes = require("./routes/seller-products");
 const sellerRoutes = require("./routes/auth-seller");
+const userRoutes = require("./routes/auth-user");
 
 // Database path
 require('./Database/db');
@@ -21,5 +22,6 @@ app.use(cors());
 // route Middlewares
 app.use("/api/seller-products", productRoutes);
 app.use("/api/seller", sellerRoutes);
+app.use("/api/user", userRoutes);
 
 app.listen(4000, () => console.log("server up and runing on port 4000!"));

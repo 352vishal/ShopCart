@@ -4,9 +4,9 @@
 
 <br><br>
   <div class="wrapper">
-    <form class="login-box" [formGroup]="loginForm" (ngSubmit)="loginUser()" >
+    <form class="login-box" [formGroup]="loginForm" (ngSubmit)="loginUser()">
       <div class="login-header">
-        <span>Seller Login</span>
+        <span>User Login</span>
       </div>
 
       <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
@@ -38,15 +38,15 @@
         </div>
         
         <div class="forgot">
-          <a (click)="forgotPsw()">Forgot password ?</a>
+          <a >Forgot password ?</a>
         </div>
       </div>
 
       <div class="input_box">
-        <input type="submit" [disabled]="loginForm.invalid" class="input-submit" value="Login">
+        <input [disabled]="loginForm.invalid" type="submit" class="input-submit" value="Login">
       </div>
       <div class="register">
-        <span>Don't have an account ? <a routerLink="/register">Register</a></span>
+        <span>Don't have an account ? <a routerLink="/user-register">Register</a></span>
       </div>
     </form>
   </div>

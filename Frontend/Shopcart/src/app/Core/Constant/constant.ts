@@ -2,7 +2,8 @@
 // Api url's come from backend NodeJs
 export const constant ={
     apiEndPoint:{
-        AuthUrl: 'http://localhost:4000/api/seller',
-        SellerUrl: 'http://localhost:4000/api/seller-products'
+        AuthSeller: 'http://localhost:4000/api/seller',
+        AuthUser:'http://localhost:4000/api/user',
+        SellerProductUrl: 'http://localhost:4000/api/seller-products'
     }
 }

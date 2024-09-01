@@ -12,11 +12,17 @@
         <img class="logo-txt"  src="https://i.ibb.co/5rnWSTN/text-omg.jpg" alt="ShopCart">
       </a>
     </div>
+       <!-- Without login Nabvar -->
       <ul class="links" *ngSwitchCase="'default'">
-        <li><a class="nav-login"><i class="fa-solid fa-user"></i></a></li>
+        <li><a class="nav-login" routerLink="user-login"><i class="fa-solid fa-user"></i></a></li>
         <li><a routerLink="login"><i class="fa fa-store"></i></a></li>
         <li><a ><mat-icon matBadge="{{cartItems}}" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
       </ul>
+      <!-- User login Nabvar -->
+      <ul class="links" *ngSwitchCase="'user'">
+        <li><a ><mat-icon matBadge="1" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
+      </ul>
+      <!-- Seller login Nabvar -->
       <ul class="links" *ngSwitchCase="'seller'">
         <li><a routerLink="seller-home"><i class="fa fa-store"></i></a></li>
         <li><a ><mat-icon matBadge="1" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
@@ -27,8 +33,15 @@
       <input  type="text" placeholder="Search Something..." required>
       <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
     </form>
+    <!-- Seller login Nabvar -->
     <ul class="links" *ngSwitchCase="'seller'">
-      <p-button  type="button" [link]="true" (onClick)="rightSidebar = true">
+      <p-button  type="button" [link]="true" (onClick)="sellerRightSidebar = true">
+      <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+      </p-button>
+    </ul>
+    <!-- User login Nabvar -->
+    <ul class="links" *ngSwitchCase="'user'">
+      <p-button  type="button" [link]="true" (onClick)="userRightSidebar = true">
       <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
       </p-button>
     </ul>
@@ -38,8 +51,8 @@
 
 <div class="card flex justify-content-center">
 
-  <!-- Left Side Menu -->
-  <p-sidebar [(visible)]="leftSidebar">
+  <!-- Home Left Side Menu -->
+<p-sidebar [(visible)]="leftSidebar">
     <div class=" flex justify-content-center">
       <ul [ngStyle]="{'list-style': 'none'}">
         <li>
@@ -53,15 +66,45 @@
         </li>
       </ul>
   </div>
-  </p-sidebar>
+</p-sidebar>
 
-  <!-- Right Side Menu -->
-  <p-sidebar [(visible)]="rightSidebar" position="right">
+  <!-- Seller Right Side Menu -->
+<p-sidebar [(visible)]="sellerRightSidebar" position="right">
     <div class=" flex justify-content-center">
       <ul [ngStyle]="{'list-style': 'none'}">
         <li>
            <!-- Seller name with profile image -->
-          <p-chip [ngStyle]="{'margin-top': '17px'}" label="{{fullName}}" 
+          <p-chip [ngStyle]="{'margin-top': '17px'}" label="{{SellerfullName}}" 
+          image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" alt="Avatar image"/>
+        </li><br>
+        <li>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-user">&nbsp;&nbsp;My Profile</i></a>
+        </li><br>
+        <li>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-bell">&nbsp;&nbsp;Notification</i></a>
+        </li><br>
+        <li>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-gear">&nbsp;&nbsp;Setting</i></a>
+        </li><br>
+        <li>
+          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-lock">&nbsp;&nbsp;Privacy</i></a>
+        </li><br>
+        <hr><br>
+        <li>
+          <a (click)="sellerRightSidebar = false" style="cursor: pointer; padding: 12px; color: black;" (click)="UserLogout()" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
+        </li>
+
+      </ul>
+  </div> 
+</p-sidebar>
+
+  <!-- User Right Side Menu -->
+<p-sidebar [(visible)]="userRightSidebar" position="right">
+    <div class=" flex justify-content-center">
+      <ul [ngStyle]="{'list-style': 'none'}">
+        <li>
+           <!-- Seller name with profile image -->
+          <p-chip [ngStyle]="{'margin-top': '17px'}" label="{{UserfullName}}" 
           image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" alt="Avatar image"/>
         </li><br>
         <li>
@@ -84,7 +127,7 @@
         </li><br>
         <hr><br>
         <li>
-          <a (click)="rightSidebar = false" style="cursor: pointer; padding: 12px; color: black;" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
+          <a (click)="userRightSidebar = false" style="cursor: pointer; padding: 12px; color: black;" (click)="UserLogout()" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
         </li>
 
       </ul>

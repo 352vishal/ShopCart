@@ -1,5 +1,5 @@
 // Seler logged in and signup [data type] interface file code
-export interface User {
+export interface Seller {
     id: string;
     fullName: string;
     email: string;

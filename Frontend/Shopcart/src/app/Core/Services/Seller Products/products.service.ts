@@ -36,25 +36,25 @@ export class ProductsService {
     formData.append("productCategory",seller.productCategory);
     formData.append('productImage', seller.productImage??"");
     formData.append("productDescription",seller.productDescription);
-    return this.http.post<Product>(constant.apiEndPoint.SellerUrl, formData); 
+    return this.http.post<Product>(constant.apiEndPoint.SellerProductUrl, formData); 
   }
 
   // The `getProductList` function Get request on the server
   // to get the seller product details data on the mongoDb databse.
   getSellerProductList(){
-    return this.http.get(constant.apiEndPoint.SellerUrl);
+    return this.http.get(constant.apiEndPoint.SellerProductUrl);
   }
 
   // The `getSingleProductsList` function Get request on the server
   // to Get the Single Products "Id" used to update a product in API by its ID
   getSingleSellerProductsList(id : any) {
-    return this.http.get<Product>(`${constant.apiEndPoint.SellerUrl}/${id}`)
+    return this.http.get<Product>(`${constant.apiEndPoint.SellerProductUrl}/${id}`)
   }
 
   // The `getDeleteProduct` function Delete request on the server
   // to Delete the seller product details data on the mongoDb databse.
   DeleteProduct(id:number) {
-    return this.http.delete(`${constant.apiEndPoint.SellerUrl}/${id}`,
+    return this.http.delete(`${constant.apiEndPoint.SellerProductUrl}/${id}`,
       this.httpOptions = {
         headers: new HttpHeaders()
           .set("Content-Type", "application/json")
@@ -67,7 +67,7 @@ export class ProductsService {
   // The `updateProduct` function Put request on the server
   // to Update data used to product Id put data from the mongoDb databse.
   updateProduct(seller: Product) {
-    return this.http.put<Product>(`${constant.apiEndPoint.SellerUrl}/${seller.id}`, seller, 
+    return this.http.put<Product>(`${constant.apiEndPoint.SellerProductUrl}/${seller.id}`, seller, 
       this.httpOptions = {
         headers: new HttpHeaders()
           .set("Content-Type", "application/json")

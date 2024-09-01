@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { AuthService } from '../../../Core/Services/Seller-Auth/auth.service';
-import { Seller } from '../../../Core/Model/seller-auth';
 import { passwordMatchValidator } from '../../../shared/password-match.directive';
+import { UserAuthService } from '../../../Core/Services/User-Auth/user-auth.service';
+import { User } from '../../../Core/Model/user-auth';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-user-register',
+  templateUrl: './user-register.component.html',
+  styleUrl: './user-register.component.css'
 })
-export class RegisterComponent {
+export class UserRegisterComponent {
 
   // registration form validation code
-  registerForm = this.fb.group({
+  UserRegisterForm = this.fb.group({
     fullName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
@@ -25,44 +25,43 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
+    private user: UserAuthService,
     private messageService: MessageService,
     private router: Router
   ) { }
 
   get fullName() {
-    return this.registerForm.controls['fullName'];
+    return this.UserRegisterForm.controls['fullName'];
   }
 
   get email() {
-    return this.registerForm.controls['email'];
+    return this.UserRegisterForm.controls['email'];
   }
 
   get password() {
-    return this.registerForm.controls['password'];
+    return this.UserRegisterForm.controls['password'];
   }
 
   get confirmPassword() {
-    return this.registerForm.controls['confirmPassword'];
+    return this.UserRegisterForm.controls['confirmPassword'];
   }
 
 // The submitDetails function calls from the "registerUser" method from the "auth" Service post request.
 // It post register seller signUp details on the server from mongodb Database.
-  submitDetails() {
-    const postData = { ...this.registerForm.value };
+UsersubmitDetails() {
+    const postData = { ...this.UserRegisterForm.value };
     // confirm password code
     delete postData.confirmPassword;
-    this.authService.registerSeller(postData as Seller)
+    this.user.registerUser(postData as User)
     .subscribe(
       response => {
         console.log(response);
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register successfully' });
-        this.router.navigate(['login'])
+        this.router.navigate(['user-login'])
       },
       error => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Email already exists' });
       }
     )
   }
-
 }

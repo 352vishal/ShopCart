@@ -1,15 +1,15 @@
 const router = require("express").Router();
-const Seller = require("../model/Auth-Seller");
+const User = require("../model/Auth-User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const SellerToken = require("../model/Token");
 const nodemailer = require("nodemailer");
 
-// Seller Register 
-const postRegisterSeller = async (req, res) => {
+// User Register 
+const postRegisterUser = async (req, res) => {
 
-    // checking seller email id in database
-const emailExit = await Seller.findOne({
+    // checking user email id in database
+const emailExit = await User.findOne({
   email: req.body.email
 });
 
@@ -20,33 +20,33 @@ if (emailExit) return res.status(400).send("Email already exists");
 const salt = await bcrypt.genSalt(10);
 const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-    // create new Seller
-  const seller = new Seller({
+    // create new User
+  const user = new User({
   name: req.body.name,
   email: req.body.email,
   password: hashedPassword
 });
 
 try {
-  const savedSeller = await seller.save();
-  res.send(savedSeller);
+  const savedUser = await user.save();
+  res.send(savedUser);
 } catch (error) {
   res.status(400).send(error);
 }
 };
 
-// Seller login
-const postLoginSeller = async (req, res) => {
-    // checking Seller email id in database
-    const seller = await Seller.findOne({ email: req.body.email});
-    if (!seller) return res.status(400).send({ message: "Email is Wrong" });
+// User login
+const postLoginUser = async (req, res) => {
+    // checking User email id in database
+    const user = await User.findOne({ email: req.body.email});
+    if (!user) return res.status(400).send({ message: "Email is Wrong" });
   
     // checking password
-    const validPass = await bcrypt.compare(req.body.password, seller.password);
+    const validPass = await bcrypt.compare(req.body.password, user.password);
     if (!validPass) return res.status(400).send({ message: "Invalid Password" });
   
     // creat and assign a token
-    const token = jwt.sign({ _id: seller._id , name: seller.email}, process.env.TOKEN_SECRET);
+    const token = jwt.sign({ _id: user._id , name: user.email}, process.env.TOKEN_SECRET);
     res.header("auth-token", token).send({ token: token });
 
   };
@@ -55,18 +55,18 @@ const postLoginSeller = async (req, res) => {
 // send password link method
 const SendEmail = async (req, res) => {
     const email = req.body.email;
-    const seller = await Seller.findOne({email: {$regex: '^'+email+'$', $options: 'i'}});
-    if(!seller) {
-          return res.status(400).send({ message: "Seller not found to reset the email" });
+    const user = await User.findOne({email: {$regex: '^'+email+'$', $options: 'i'}});
+    if(!user) {
+          return res.status(400).send({ message: "User not found to reset the email" });
     }
     const payload = {
-    email: seller.email
+    email: user.email
   }
     const expiryTime = 500;
     const token = jwt.sign(payload, process.env.TOKEN_SECRET, {expiresIn: expiryTime});
   
     const newToken = new SellerToken({
-      sellerId: seller._id,
+      userId: user._id,
       token: token
     });
     const transporter = nodemailer.createTransport({
@@ -88,7 +88,7 @@ const SendEmail = async (req, res) => {
         </head>
         <body>
           <h1>Password Reset Request</h1>
-          <p>Dear &nbsp; ${seller.email},</p>
+          <p>Dear &nbsp; ${user.email},</p>
           <p>We have received a request to reset your password for your account with ShopCart. To complete the password reset process, please click on the button below: </p>
           <a href=${process.env.LIVE_URL}/reset/${token}>
           <button style="background-color: #4CAF50; color: white; padding: 14px 20px; border: none; cursor: pointer; border-radius: 4px;">Reset Paswword</button>
@@ -122,14 +122,14 @@ const ResetPassword = async (req, res) => {
         return res.status(500).send({ message: "Reset Link is Expire!" });
       }else{
         const response = data;
-        const seller = await Seller.findOne({email: {$regex: '^' + response.email + '$', $options: 'i'}});
+        const user = await User.findOne({email: {$regex: '^' + response.email + '$', $options: 'i'}});
         const salt = await bcrypt.genSalt(10);
         const encryptedPassword = await bcrypt.hash(newPassword, salt);
-        seller.passowrd = encryptedPassword;
+        user.passowrd = encryptedPassword;
         try{
-            const updatedSeller = await Seller.findOneAndUpdate(
-              {_id: seller._id},
-              {$set: seller},
+            const updatedUser = await User.findOneAndUpdate(
+              {_id: user._id},
+              {$set: user},
               {new: true}
             )
             return res.status(200).send({ message: "Password Reset Success" })
@@ -141,8 +141,8 @@ const ResetPassword = async (req, res) => {
   };
  
 module.exports = {
-    postRegisterSeller,
-    postLoginSeller,
+    postRegisterUser,
+    postLoginUser,
     SendEmail,
     ResetPassword
 }  
