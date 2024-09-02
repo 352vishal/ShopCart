@@ -8,12 +8,18 @@ const nodemailer = require("nodemailer");
 // User Register 
 const postRegisterUser = async (req, res) => {
 
-    // checking user email id in database
+// checking user email id in database
 const emailExit = await User.findOne({
   email: req.body.email
 });
 
-if (emailExit) return res.status(400).send("Email already exists");
+if (emailExit) return res.status(400).send({ userEmail: "Email already exists" });
+
+const nameExit = await User.findOne({
+  name: req.body.name
+});
+
+if (nameExit) return res.status(400).send({ userName: "Name already exists" });
 
 // hash password 
 //  Dicript the password not visibale in database
@@ -46,7 +52,7 @@ const postLoginUser = async (req, res) => {
     if (!validPass) return res.status(400).send({ message: "Invalid Password" });
   
     // creat and assign a token
-    const token = jwt.sign({ _id: user._id , name: user.email}, process.env.TOKEN_SECRET);
+    const token = jwt.sign({ _id: user._id , email: user.email, name: user.name}, process.env.TOKEN_SECRET);
     res.header("auth-token", token).send({ token: token });
 
   };
@@ -66,7 +72,7 @@ const SendEmail = async (req, res) => {
     const token = jwt.sign(payload, process.env.TOKEN_SECRET, {expiresIn: expiryTime});
   
     const newToken = new SellerToken({
-      userId: user._id,
+      sellerId: user._id,
       token: token
     });
     const transporter = nodemailer.createTransport({
@@ -88,7 +94,7 @@ const SendEmail = async (req, res) => {
         </head>
         <body>
           <h1>Password Reset Request</h1>
-          <p>Dear &nbsp; ${user.email},</p>
+          <p>Dear ${user.name},</p>
           <p>We have received a request to reset your password for your account with ShopCart. To complete the password reset process, please click on the button below: </p>
           <a href=${process.env.LIVE_URL}/reset/${token}>
           <button style="background-color: #4CAF50; color: white; padding: 14px 20px; border: none; cursor: pointer; border-radius: 4px;">Reset Paswword</button>

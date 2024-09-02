@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductDetailRoutingModule } from './product-detail-routing.module';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
   imports: [
     CommonModule,
     ProductDetailRoutingModule,
-    NgbModule
+    NgbModule,
+    ToastModule
   ],
   exports: [
     ProductDetailRoutingModule

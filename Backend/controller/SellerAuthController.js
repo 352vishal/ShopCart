@@ -8,12 +8,19 @@ const nodemailer = require("nodemailer");
 // Seller Register 
 const postRegisterSeller = async (req, res) => {
 
-    // checking seller email id in database
+// checking seller email id in database
 const emailExit = await Seller.findOne({
   email: req.body.email
 });
 
-if (emailExit) return res.status(400).send("Email already exists");
+if (emailExit) return res.status(400).send({ sellerEmail: "Email already exists" });
+
+
+const nameExit = await Seller.findOne({
+  name: req.body.name
+});
+
+if (nameExit) return res.status(400).send({ sellerName: "Name already exists" });
 
 // hash password 
 //  Dicript the password not visibale in database
@@ -46,7 +53,7 @@ const postLoginSeller = async (req, res) => {
     if (!validPass) return res.status(400).send({ message: "Invalid Password" });
   
     // creat and assign a token
-    const token = jwt.sign({ _id: seller._id , name: seller.email}, process.env.TOKEN_SECRET);
+    const token = jwt.sign({ _id: seller._id , email: seller.email, name: seller.name}, process.env.TOKEN_SECRET);
     res.header("auth-token", token).send({ token: token });
 
   };
@@ -88,7 +95,7 @@ const SendEmail = async (req, res) => {
         </head>
         <body>
           <h1>Password Reset Request</h1>
-          <p>Dear &nbsp; ${seller.email},</p>
+          <p>Dear ${seller.name},</p>
           <p>We have received a request to reset your password for your account with ShopCart. To complete the password reset process, please click on the button below: </p>
           <a href=${process.env.LIVE_URL}/reset/${token}>
           <button style="background-color: #4CAF50; color: white; padding: 14px 20px; border: none; cursor: pointer; border-radius: 4px;">Reset Paswword</button>

@@ -65,7 +65,7 @@ removeCart=false;
       if(this.productData){
         this.productData.quantity = this.productQuantity;
         if(!localStorage.getItem('token')){
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: "Product added in the cart" });
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: "Product added in the cart",key: 'tl' });
           this.product.localAddToCart(this.productData);
           this.removeCart=true
         }
@@ -78,6 +78,7 @@ removeCart=false;
      // Remove cart Functionality
     removeToCart(productId: any){
       this.product.removeItemFromCart(productId)
+      this.messageService.add({ severity: 'info', summary: 'info', detail: "Product Removed in the cart",key: 'tl' });
       this.removeCart=false
     }
 

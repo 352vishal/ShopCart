@@ -1,0 +1,39 @@
+
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+  <div class="wrapper">
+    <form class="login-box" [formGroup]="resetForm" (ngSubmit)="resetPassowrd()">
+      <div class="login-header">
+        <span>Reset Passowrd</span>
+      </div>
+
+      <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+        <div *ngIf="password.errors?.['required']">New password must be Unique!.</div>
+      </small>
+
+      <div class="input_box">
+        <input type="password"  class="input-field" formControlName="password" required>
+        <label class="label">New Password</label>
+        <i class="bx bx-lock-alt icon" id="togglePassword"></i>
+      </div>
+
+      <small *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="block p-error">
+      <div *ngIf="confirmPassword.errors?.['required']"> Confirm the password </div>
+      </small>
+      <small class="block p-error" *ngIf="resetForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid">
+        Password should match
+      </small>
+
+      <div class="input_box">
+        <input type="password"  class="input-field" formControlName="confirmPassword" required>
+        <label  class="label">Confirm Password</label>
+        <i class="bx bx-lock-alt icon" id="togglePassword"></i>
+      </div>
+
+      <div class="input_box">
+        <input type="submit" [disabled]="resetForm.invalid" class="input-submit" value="Reset Passowrd">
+      </div>
+    </form>
+  </div>

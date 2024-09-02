@@ -60,7 +60,7 @@ loginUser() {
 
 // The `forgotPsw` function navigates to the 'forgot-password' route using the Angular router.
 forgotPsw(){
-  this.router.navigate(['forgot-password'])
+  this.router.navigate(['user-forgot-password'])
 }
     
 }

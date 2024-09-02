@@ -80,7 +80,7 @@ ngOnInit() {
 
 
 // The `logout` function removes the 'token' from localStorage and navigates to the 'login' route.
-logout(){
+SellerLogout(){
   localStorage.removeItem('token');
   this.route.navigate(['login']);
   localStorage.clear();

@@ -9,13 +9,13 @@
         <span>Register</span>
       </div>
 
-      <small *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="block p-error">
-      <div *ngIf="fullName.errors?.['required']">Name is required.</div>
-      <div *ngIf="fullName.errors?.['pattern']">Enter a valid Name</div>
+      <small *ngIf="name.invalid && (name.dirty || name.touched)" class="block p-error">
+      <div *ngIf="name.errors?.['required']">Name is required.</div>
+      <div *ngIf="name.errors?.['pattern']">Enter a valid Name</div>
       </small>
 
       <div class="input_box">
-        <input type="text" class="input-field"  formControlName="fullName" required>
+        <input type="text" class="input-field"  formControlName="name" required>
         <label  class="label">Full Name</label>
         <i class="bx bx-user icon"></i>
       </div>

@@ -25,7 +25,6 @@
       <!-- Seller login Nabvar -->
       <ul class="links" *ngSwitchCase="'seller'">
         <li><a routerLink="seller-home"><i class="fa fa-store"></i></a></li>
-        <li><a ><mat-icon matBadge="1" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
       </ul>
     </div>
     <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
@@ -91,7 +90,7 @@
         </li><br>
         <hr><br>
         <li>
-          <a (click)="sellerRightSidebar = false" style="cursor: pointer; padding: 12px; color: black;" (click)="UserLogout()" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
+          <a (click)="sellerRightSidebar = false" style="cursor: pointer; padding: 12px; color: black;" (click)="SellerLogout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
         </li>
 
       </ul>
@@ -127,7 +126,7 @@
         </li><br>
         <hr><br>
         <li>
-          <a (click)="userRightSidebar = false" style="cursor: pointer; padding: 12px; color: black;" (click)="UserLogout()" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
+          <a (click)="userRightSidebar = false" style="cursor: pointer; padding: 12px; color: black;" (click)="UserLogout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
         </li>
 
       </ul>

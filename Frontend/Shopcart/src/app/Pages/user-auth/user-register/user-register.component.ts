@@ -15,7 +15,7 @@ export class UserRegisterComponent {
 
   // registration form validation code
   UserRegisterForm = this.fb.group({
-    fullName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+    name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required]
@@ -30,8 +30,8 @@ export class UserRegisterComponent {
     private router: Router
   ) { }
 
-  get fullName() {
-    return this.UserRegisterForm.controls['fullName'];
+  get name() {
+    return this.UserRegisterForm.controls['name'];
   }
 
   get email() {
@@ -60,7 +60,12 @@ UsersubmitDetails() {
         this.router.navigate(['user-login'])
       },
       error => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Email already exists' });
+        if(error.error.userName){
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.userName});
+        }
+        else if(error.error.userEmail){
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.userEmail});
+        }
       }
     )
   }
