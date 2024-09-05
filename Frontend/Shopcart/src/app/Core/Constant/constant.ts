@@ -3,7 +3,8 @@
 export const constant ={
     apiEndPoint:{
         AuthSeller: 'http://localhost:4000/api/seller',
-        AuthUser:'http://localhost:4000/api/user',
-        SellerProductUrl: 'http://localhost:4000/api/seller-products'
+        AuthUser: 'http://localhost:4000/api/user',
+        SellerProductUrl: 'http://localhost:4000/api/seller-products',
+        Cart: 'http://localhost:4000/api/cart'
     }
 }

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { ProductsService } from '../../../Core/Services/Seller Products/products.service';
-import { Product } from '../../../Core/Model/seller';
+import { ProductsService } from '../../../Core/Services/Products/products.service';
+import { Product } from '../../../Core/Model/products';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductsService } from '../../../Core/Services/Seller Products/products.service';
+import { ProductsService } from '../../../Core/Services/Products/products.service';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 

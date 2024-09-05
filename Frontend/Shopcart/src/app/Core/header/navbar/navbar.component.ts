@@ -1,9 +1,9 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../Services/Seller-Auth/auth.service';
+import { AuthService } from '../../Services/Seller-Auth/seller-auth.service';
 import { isPlatformBrowser } from '@angular/common';
-import { ProductsService } from '../../Services/Seller Products/products.service';
 import { UserAuthService } from '../../Services/User-Auth/user-auth.service';
+import { CartService } from '../../Services/Cart/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -30,7 +30,7 @@ SellerfullName : string = "";
 UserfullName : string = "";
 
 constructor(private route:Router, private seller:AuthService, private user:UserAuthService,
-            @Inject(PLATFORM_ID) private platformId: Object, private product:ProductsService){}
+            @Inject(PLATFORM_ID) private platformId: Object, private cart:CartService){}
 ngOnInit() {
   this.route.events.subscribe((val: any) => {
     if (val.url) {
@@ -41,6 +41,7 @@ ngOnInit() {
       }
       else if(localStorage.getItem('UserToken')){
         this.menuType='user';
+        this.cart.getCartList(this.seller.getfullNameFromToken());
       }
       else {
         this.menuType = 'default';
@@ -54,7 +55,7 @@ ngOnInit() {
     if(cartData){
       this.cartItems= JSON.parse(cartData).length
     }
-    this.product.cartData.subscribe((items)=>{
+    this.cart.cartData.subscribe((items)=>{
       this.cartItems= items.length
     })
   }
@@ -83,15 +84,12 @@ ngOnInit() {
 SellerLogout(){
   localStorage.removeItem('token');
   this.route.navigate(['login']);
-  localStorage.clear();
-  sessionStorage.clear();
 }
 
 UserLogout(){
   localStorage.removeItem('UserToken');
   this.route.navigate(['user-login']);
-  localStorage.clear();
-  sessionStorage.clear();
+  this.cart.cartData.emit([]);
 }
 
 }

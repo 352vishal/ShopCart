@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../../Core/Services/Seller-Auth/auth.service';
+import { AuthService } from '../../../Core/Services/Seller-Auth/seller-auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { passwordMatchValidator } from '../../../shared/password-match.directive';

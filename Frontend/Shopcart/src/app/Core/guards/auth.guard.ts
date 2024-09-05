@@ -1,7 +1,7 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../Services/Seller-Auth/auth.service';
+import { AuthService } from '../Services/Seller-Auth/seller-auth.service';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({

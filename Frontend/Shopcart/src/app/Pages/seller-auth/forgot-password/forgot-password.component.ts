@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../../../Core/Services/Seller-Auth/auth.service';
+import { AuthService } from '../../../Core/Services/Seller-Auth/seller-auth.service';
 import { MessageService } from 'primeng/api';
 
 @Component({

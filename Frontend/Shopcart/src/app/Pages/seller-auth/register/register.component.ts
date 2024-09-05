@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { AuthService } from '../../../Core/Services/Seller-Auth/auth.service';
+import { AuthService } from '../../../Core/Services/Seller-Auth/seller-auth.service';
 import { Seller } from '../../../Core/Model/seller-auth';
 import { passwordMatchValidator } from '../../../shared/password-match.directive';
 

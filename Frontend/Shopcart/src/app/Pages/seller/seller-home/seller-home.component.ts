@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductsService } from '../../../Core/Services/Seller Products/products.service';
-import { Product } from '../../../Core/Model/seller';
+import { ProductsService } from '../../../Core/Services/Products/products.service';
+import { Product } from '../../../Core/Model/products';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MessageService } from 'primeng/api';

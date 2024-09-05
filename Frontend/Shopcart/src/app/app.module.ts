@@ -16,6 +16,7 @@ import { FooterModule } from './Core/footer/footer.module';
 import { HomeModule } from './Pages/home/home.module';
 import { ProductDetailModule } from './Pages/product-detail/product-detail.module';
 import { UserAuthModule } from './Pages/user-auth/user-auth.module';
+import { CartModule } from './Pages/cart/cart.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { UserAuthModule } from './Pages/user-auth/user-auth.module';
     FooterModule,
     HomeModule,
     ProductDetailModule,
-    UserAuthModule,],
+    UserAuthModule,
+    CartModule],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent]
 })

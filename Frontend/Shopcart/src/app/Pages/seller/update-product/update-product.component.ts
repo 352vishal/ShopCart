@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Product } from '../../../Core/Model/seller';
+import { Product } from '../../../Core/Model/products';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from '../../../Core/Services/Seller Products/products.service';
+import { ProductsService } from '../../../Core/Services/Products/products.service';
 import { MessageService } from 'primeng/api';
 
 

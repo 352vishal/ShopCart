@@ -1,6 +1,6 @@
 // Seler Home page Product [data type] interface file code
 export interface Product {
-   _id: string;
+   _id: number | string;
     id: string;
     productId: string;
     productName: string;
@@ -10,5 +10,4 @@ export interface Product {
     productCategory: string;
     productImage?:File
     productDescription: string;
-    quantity:undefined | number
 }

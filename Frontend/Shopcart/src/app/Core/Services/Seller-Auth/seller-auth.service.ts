@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Seller } from '../../Model/seller-auth';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { constant } from '../../Constant/constant';
 import { MessageService } from 'primeng/api';
@@ -18,9 +18,9 @@ export class AuthService {
   ) {
     this.userPayload = this.decodedToken();
    }
-  
-  // Display User FullName from Token
-  private userPayload:any;
+
+    // Display User FullName from Token
+    private userPayload:any;
 
     // Display User FullName from Token
     private name$ = new BehaviorSubject<string>("");
@@ -98,7 +98,7 @@ export class AuthService {
     if (isPlatformBrowser(this.platformId)) {
       const jwtHelper = new JwtHelperService();
       const token = this.getToken()!;
-      console.log(jwtHelper.decodeToken(token))
+      // console.log(jwtHelper.decodeToken(token))
       return jwtHelper.decodeToken(token)
   }
   }

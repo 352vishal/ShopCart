@@ -1,7 +1,7 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../Core/Services/Seller-Auth/auth.service';
+import { AuthService } from '../../../Core/Services/Seller-Auth/seller-auth.service';
 import { isPlatformBrowser, PlatformLocation } from '@angular/common';
 
 @Component({
