@@ -9,6 +9,10 @@
 .trash:hover{
     background: #ff8888;
 }
+.navbar-brand{
+    font-family: Montserrat;
+    font-size: 24px;
+}
 /* .fa-trash:before {
     content: "\f1f8";
     cursor: pointer;

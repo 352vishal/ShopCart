@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Product } from '../../Model/products';
 import { Cart } from '../../Model/cart';
@@ -10,7 +10,10 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root',
 })
 export class CartService {
-  // Display User FullName from Token
+
+  private httpOptions = {};
+  
+  // Display User ID from Token
   private userPayload: any;
 
   // Add to cart EventEmitter
@@ -70,19 +73,26 @@ export class CartService {
 
   // Remove item from MongoDb DataBase to cart functionality
   removeToCart(cartId: number) {
-    return this.http.delete(`${constant.apiEndPoint.Cart}/${cartId}`);
+    return this.http.delete(`${constant.apiEndPoint.Cart}/${cartId}`,
+      this.httpOptions = {
+        headers: new HttpHeaders()
+          .set("Content-Type", "application/json")
+          .set("auth-token", "" + localStorage.getItem("token")) // Add JWT token to the request header.
+          
+      }
+    );
   }
 
   // Display Products on Cart Page
   currentCart() {
-    let userId = this.getfullNameFromToken();
+    let userId = this.getIdFromToken();
     return this.http.get<Product[]>(
       `${constant.apiEndPoint.Cart}?userId=${userId}`
     );
   }
 
   // Get user id
-  // Display User FullName from Token
+  // Display User ID from Token
   getToken() {
     if (isPlatformBrowser(this.platformId)) {
       if (localStorage.getItem('UserToken')) {
@@ -90,7 +100,7 @@ export class CartService {
     }
     return localStorage.getItem('UserToken');
   }
-  // Display User FullName from Token
+  // Display User ID from Token
   decodedToken() {
     if (isPlatformBrowser(this.platformId)) {
       const jwtHelper = new JwtHelperService();
@@ -100,7 +110,7 @@ export class CartService {
     }
   }
   // Display User FullName from Token
-  getfullNameFromToken() {
-    if (this.userPayload) return this.userPayload.name;
+  getIdFromToken() {
+    if (this.userPayload) return this.userPayload.id;
   }
 }

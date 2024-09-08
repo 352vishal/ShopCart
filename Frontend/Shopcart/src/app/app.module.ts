@@ -17,6 +17,8 @@ import { HomeModule } from './Pages/home/home.module';
 import { ProductDetailModule } from './Pages/product-detail/product-detail.module';
 import { UserAuthModule } from './Pages/user-auth/user-auth.module';
 import { CartModule } from './Pages/cart/cart.module';
+import { CheckoutModule } from './Pages/checkout/checkout.module';
+import { OrderModule } from './Pages/order/order.module';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { CartModule } from './Pages/cart/cart.module';
     HomeModule,
     ProductDetailModule,
     UserAuthModule,
-    CartModule],
+    CartModule,
+    CheckoutModule,
+    OrderModule],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent]
 })

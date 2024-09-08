@@ -14,6 +14,7 @@ import { CartService } from '../../../Core/Services/Cart/cart.service';
   styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent {
+  
   // Display User ID from Token
   private userPayload: any;
 
@@ -153,13 +154,9 @@ export class ProductDetailsComponent {
     if (!localStorage.getItem('UserToken')) {
       this.cart.removeItemFromLocalStorage(productId);
     } else {
-      this.cartData && this.cart.removeToCart(productId)
-      .subscribe((result)=>{
-        if (localStorage.getItem('UserToken')) {
-          let userId = this.userPayload._id;
-          this.cart.getCartList(userId)
-        } 
-      })
+      this.cart.removeToCart(productId).subscribe((result) => {
+        console.warn(result);
+      });
     }
     this.removeCart = false;
   }

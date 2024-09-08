@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartService } from '../../../Core/Services/Cart/cart.service';
 import { Product } from '../../../Core/Model/products';
 import { priceSummary } from '../../../Core/Model/priceSummary';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -21,7 +22,7 @@ priceSummary: priceSummary= {
   totalPrice: 0
 }
 
-  constructor(private cart: CartService){}
+  constructor(private cart: CartService, private router: Router){}
 
   ngOnInit() {
     this.cart.currentCart().subscribe((result) =>{
@@ -38,6 +39,11 @@ priceSummary: priceSummary= {
       }
       // console.warn(this.priceSummary);
     });
+  }
+
+  // Checkout routing navigate function
+  Checkout(){
+    this.router.navigate(['checkout']);
   }
 
 }

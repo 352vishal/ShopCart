@@ -5,6 +5,11 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
+.list-item ul li a{
+color: black;;
+cursor: pointer;
+padding: 12px;
+}
 .nav-content .logo .logo-img{
   width: 5%;
 }

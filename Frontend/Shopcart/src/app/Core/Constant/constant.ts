@@ -5,6 +5,7 @@ export const constant ={
         AuthSeller: 'http://localhost:4000/api/seller',
         AuthUser: 'http://localhost:4000/api/user',
         SellerProductUrl: 'http://localhost:4000/api/seller-products',
-        Cart: 'http://localhost:4000/api/cart'
+        Cart: 'http://localhost:4000/api/cart',
+        Order: 'http://localhost:4000/api/order'
     }
 }

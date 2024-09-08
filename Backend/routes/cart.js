@@ -1,6 +1,9 @@
 const router = require("express").Router();
-const verify = require("../controller/verifyToken");
-const { postUserCartProduct,getUserCartProducts,getSingleCartProductId,deleteCartProducts } = require('../controller/CartController');
+const { postUserCartProduct,
+        getUserCartProducts,
+        getSingleCartProductId,
+        deleteCartProducts 
+} = require('../controller/CartController');
 
 // Post User All Cart Products
 router.post("/", postUserCartProduct);
@@ -12,6 +15,6 @@ router.get("/", getUserCartProducts);
 router.get("/:userId", getSingleCartProductId);
 
 // Delete User Cart product
-router.delete("/:userId", verify, deleteCartProducts);
+router.delete("/:userId", deleteCartProducts);
 
 module.exports = router;

@@ -24,7 +24,7 @@
       </ul>
       <!-- Seller login Nabvar -->
       <ul class="links" *ngSwitchCase="'seller'">
-        <li><a routerLink="seller-home"><i class="fa fa-store"></i></a></li>
+        <li><a style="font-family: Montserrat;" routerLink="seller-home">Dashboard </a></li>
       </ul>
     </div>
     <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
@@ -99,7 +99,7 @@
 
   <!-- User Right Side Menu -->
 <p-sidebar [(visible)]="userRightSidebar" position="right">
-    <div class=" flex justify-content-center">
+    <div class=" flex justify-content-center list-item">
       <ul [ngStyle]="{'list-style': 'none'}">
         <li>
            <!-- Seller name with profile image -->
@@ -110,7 +110,7 @@
           <a style="cursor: pointer; padding: 12px;"><i class="fa fa-user">&nbsp;&nbsp;My Profile</i></a>
         </li><br>
         <li>
-          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-truck-fast">&nbsp;&nbsp;Orders</i></a>
+          <a (click)="userRightSidebar = false" routerLink="order"><i class="fa fa-truck-fast">&nbsp;&nbsp;Orders</i></a>
         </li><br>
         <li>
           <a style="cursor: pointer; padding: 12px;"><i class="fa fa-heart">&nbsp;&nbsp;Whishlist</i></a>
@@ -126,7 +126,7 @@
         </li><br>
         <hr><br>
         <li>
-          <a (click)="userRightSidebar = false" style="cursor: pointer; padding: 12px; color: black;" (click)="UserLogout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
+          <a (click)="userRightSidebar = false" (click)="UserLogout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign-Out</a>
         </li>
 
       </ul>
