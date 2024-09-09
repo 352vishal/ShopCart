@@ -1,6 +1,5 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { CartService } from '../../../Core/Services/Cart/cart.service';
-import { Product } from '../../../Core/Model/products';
 import { priceSummary } from '../../../Core/Model/priceSummary';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { isPlatformBrowser } from '@angular/common';

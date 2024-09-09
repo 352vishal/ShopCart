@@ -3,7 +3,6 @@ import { Order } from '../../../Core/Model/order';
 import { OrderService } from '../../../Core/Services/Order/order.service';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import { Product } from '../../../Core/Model/products';
 import { CartService } from '../../../Core/Services/Cart/cart.service';
 import { Cart } from '../../../Core/Model/cart';
 
@@ -14,13 +13,17 @@ import { Cart } from '../../../Core/Model/cart';
 })
 export class OrdersComponent {
 
+  // Order Data Display Property
   orderData:Order[]|undefined
+
+  // Cart Data Display Property
   orderProductData:Cart[]|undefined
 
   constructor(private order:OrderService,private cart: CartService, 
   private messageService: MessageService, private router:Router){}
 
   ngOnInit(): void {
+    // Get Cart Data from Cart Service
     this.cart.currentCart().subscribe((result) =>{
       this.orderProductData = result;
     });
@@ -28,12 +31,14 @@ export class OrdersComponent {
     this.getOrderList();
   }
 
+  // Get Order Data from order Service
   getOrderList(){
     this.order.orderList().subscribe((result)=>{
       this.orderData=result;
     })
   }
 
+  // Cancel Order Method
   cancelOrder(orderId:number|undefined){
     if(confirm('Are you sure you want to delete this order?'))
     orderId && this.order.cancelOrder(orderId).subscribe(      

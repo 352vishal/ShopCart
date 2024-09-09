@@ -20,7 +20,7 @@
       </ul>
       <!-- User login Nabvar -->
       <ul class="links" *ngSwitchCase="'user'">
-        <li routerLink="cart"><a ><mat-icon matBadge="{{cartItems}}" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
+        <li [routerLink]="cartItems>0?'cart':null"><a ><mat-icon matBadge="{{cartItems}}" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
       </ul>
       <!-- Seller login Nabvar -->
       <ul class="links" *ngSwitchCase="'seller'">

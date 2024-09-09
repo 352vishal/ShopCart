@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../../Core/Services/Cart/cart.service';
-import { Product } from '../../../Core/Model/products';
 import { priceSummary } from '../../../Core/Model/priceSummary';
 import { Router } from '@angular/router';
 import { Cart } from '../../../Core/Model/cart';
@@ -43,6 +42,10 @@ priceSummary: priceSummary= {
         discount: 1000,
         shipping: 30,
         totalPrice: price + 30 - 1000
+      }
+      // if your cart is empty then redirect home page
+      if(!this.CartData.length){
+        this.router.navigate(['/'])
       }
     });
   }
