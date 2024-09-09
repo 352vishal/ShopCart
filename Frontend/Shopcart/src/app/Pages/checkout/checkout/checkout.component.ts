@@ -44,6 +44,7 @@ export class CheckoutComponent {
     this.userPayload = this.decodedToken();
   }
   ngOnInit() {
+    // Price Summary code
     this.cart.currentCart().subscribe((result) => {
       this.CartData = result;
       let price = 0;
@@ -59,6 +60,7 @@ export class CheckoutComponent {
     });
   }
 
+  // Order details post on mongo database
   orderNowProduct(data: any) {
     let userId = this.userPayload._id;
     if (this.priceSummary.totalPrice) {
@@ -68,6 +70,12 @@ export class CheckoutComponent {
       userId,
     };
 
+    // order cart item delete after completed to place the order
+    this.CartData?.forEach((item) => {
+      this.cart.deleteCartItems(item._id);
+    })
+
+    // order cart item store in database
     this.order.orderNow(orderData).subscribe(
       (response) => {
         this.messageService.add({

@@ -10,9 +10,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root',
 })
 export class CartService {
-
   private httpOptions = {};
-  
+
   // Display User ID from Token
   private userPayload: any;
 
@@ -73,13 +72,13 @@ export class CartService {
 
   // Remove item from MongoDb DataBase to cart functionality
   removeToCart(cartId: number) {
-    return this.http.delete(`${constant.apiEndPoint.Cart}/${cartId}`,
-      this.httpOptions = {
+    return this.http.delete(
+      `${constant.apiEndPoint.Cart}/${cartId}`,
+      (this.httpOptions = {
         headers: new HttpHeaders()
-          .set("Content-Type", "application/json")
-          .set("auth-token", "" + localStorage.getItem("token")) // Add JWT token to the request header.
-          
-      }
+          .set('Content-Type', 'application/json')
+          .set('auth-token', '' + localStorage.getItem('token')), // Add JWT token to the request header.
+      })
     );
   }
 
@@ -89,6 +88,15 @@ export class CartService {
     return this.http.get<Cart[]>(
       `${constant.apiEndPoint.Cart}?userId=${userId}`
     );
+  }
+
+  deleteCartItems(cartId: number) {
+    return this.http.delete(`${constant.apiEndPoint.Cart}/${cartId}`, { observe: 'response' })
+      .subscribe((result) => {
+        if (result) {
+          this.cartData.emit([]);
+        }
+      });
   }
 
   // Get user id
