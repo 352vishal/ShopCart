@@ -5,7 +5,7 @@ export interface Cart {
      productName: string;
      productPrice: number;
      productColour: string;
-     productQuantity: undefined | number;
+     productQuantity: number;
      productCategory: string;
      productImage?:File
      productDescription: string;

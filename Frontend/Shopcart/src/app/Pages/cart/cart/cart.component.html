@@ -28,10 +28,10 @@
   
                 <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                   <!-- Data -->
-                  <p class="productName"><strong>{{cart.productDescription}}</strong></p>
+                  <p class="productName">{{cart.productDescription}}</p>
                   <p class="fontStyle">Color: {{cart.productColour}}</p>
                   <p class="fontStyle">Size: M</p>
-                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-sm me-1 mb-2" data-mdb-tooltip-init
+                  <button (click)="removeToCartItem(cart._id)" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-sm me-1 mb-2" data-mdb-tooltip-init
                     title="Remove item">
                     <i class="fas fa-trash"></i>
                   </button>
@@ -62,8 +62,8 @@
                   <!-- Quantity -->
   
                   <!-- Price -->
-                  <p class="text-start">
-                    <strong class="productName">{{cart.productPrice | currency: 'INR'}}</strong>
+                  <p class="text-start productName">
+                    {{cart.productPrice | currency: 'INR'}}
                   </p>
                   <!-- Price -->
                 </div>

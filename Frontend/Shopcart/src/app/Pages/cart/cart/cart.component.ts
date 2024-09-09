@@ -3,6 +3,8 @@ import { CartService } from '../../../Core/Services/Cart/cart.service';
 import { Product } from '../../../Core/Model/products';
 import { priceSummary } from '../../../Core/Model/priceSummary';
 import { Router } from '@angular/router';
+import { Cart } from '../../../Core/Model/cart';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +14,7 @@ import { Router } from '@angular/router';
 export class CartComponent {
 
 // Cart Product Display Propertie 
-CartData: Product[] | undefined;
+CartData: Cart[] | undefined;
 
 // Cart Product Summary Details Propertie
 priceSummary: priceSummary= {
@@ -22,9 +24,14 @@ priceSummary: priceSummary= {
   totalPrice: 0
 }
 
-  constructor(private cart: CartService, private router: Router){}
+  constructor(private cart: CartService, private router: Router,
+  private messageService: MessageService){}
 
   ngOnInit() {
+    this.loadDetails();
+  }
+
+  loadDetails(){
     this.cart.currentCart().subscribe((result) =>{
       this.CartData = result;
       let price = 0;
@@ -37,10 +44,21 @@ priceSummary: priceSummary= {
         shipping: 30,
         totalPrice: price + 30 - 1000
       }
-      // console.warn(this.priceSummary);
     });
   }
 
+  removeToCartItem(orderId: any){
+    if(confirm('Are you sure you want to delete this order?'))
+    this.cart.removeToCart(orderId).subscribe(      
+      response => {
+      this.loadDetails();
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: "Your cart item has been removed" });
+      console.log(response);
+    },
+    error => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.message });
+    });
+  }
   // Checkout routing navigate function
   Checkout(){
     this.router.navigate(['checkout']);

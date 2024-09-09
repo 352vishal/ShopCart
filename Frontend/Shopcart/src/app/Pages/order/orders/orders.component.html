@@ -1,31 +1,28 @@
 <div class="container">
-    <div class="table-responsive">
-        <table class="table">
-            <h1 class="order-list">My Orders</h1>
-            <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Orders</th>
-                    <th scope="col">OrderID</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">TrackingID</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let order of orderData">
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td>{{order._id}}</td>
-                    <td>{{order.totalPrice | currency}}</td>
-                    <td>Preparing your order</td>
-                    <td><a>004321</a></td>
-                    <td> <button type="button" class="btn btn-secondary" (click)="cancelOrder(order._id)">Cancel</button></td>
-                  </tr>
-                </tbody>
-              </table>
-        </table>
+  <div class="heading">
+    <h1>My Orders</h1>
+    <p>Track your open orders & view the summary of your past orders</p>
+  </div>
+  <div class="orderBox" *ngFor="let order of orderData">
+    <div class="orderId">
+      <div class="row">
+        <div class="col-6"><p>Order ID : {{order._id}}</p></div>
+        <div class="col-6 delete-item"><a (click)="cancelOrder(order._id)" class="btn btn-dark"><i class="fas fa-trash"></i></a></div>
       </div>
+    </div>
+    <div class="card bg-light-subtle mt-4">
+      <img src="https://res.cloudinary.com/dfbg8piep/image/upload/v1723107559/uploads/f2.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <div class="text-section">
+          <h5 class="card-title fw-bold">Carton Printed Tshirts</h5>
+          <p class="card-text">Adidas Carton Printed Tshirts Black</p>
+        </div>
+        <div class="cta-section">
+          <div>{{order.totalPrice | currency : 'INR'}}</div>
+          <a (click)="orderDetail()" class="btn btn-dark">More Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

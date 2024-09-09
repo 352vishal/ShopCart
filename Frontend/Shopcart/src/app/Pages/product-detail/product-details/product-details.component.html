@@ -64,7 +64,11 @@
 		        		</div>
 	        			<p>{{productData.productDescription}}</p>
 	        			<div class="row">
-							<div>Color :<h3 [style.backgroundColor]="productData.productColour" class="product-color"></h3></div>
+							<div class="color">
+								Color :&nbsp;&nbsp;<h3 [style.backgroundColor]="productData.productColour" class="product-color"></h3>
+								<h3 style="background-color: rgb(34, 155, 60);" class="product-color"></h3>
+								<h3 style="background-color: blueviolet" class="product-color"></h3>
+							</div>
 	        				<div class="col-md-6">
 	        					<label for="size">Size</label>
 								<select id="size" name="size" class="form-control">

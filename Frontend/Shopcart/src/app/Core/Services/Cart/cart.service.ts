@@ -86,7 +86,7 @@ export class CartService {
   // Display Products on Cart Page
   currentCart() {
     let userId = this.getIdFromToken();
-    return this.http.get<Product[]>(
+    return this.http.get<Cart[]>(
       `${constant.apiEndPoint.Cart}?userId=${userId}`
     );
   }

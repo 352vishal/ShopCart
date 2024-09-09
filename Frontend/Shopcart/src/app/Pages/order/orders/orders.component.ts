@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { Order } from '../../../Core/Model/order';
 import { OrderService } from '../../../Core/Services/Order/order.service';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
+import { Product } from '../../../Core/Model/products';
+import { CartService } from '../../../Core/Services/Cart/cart.service';
+import { Cart } from '../../../Core/Model/cart';
 
 @Component({
   selector: 'app-orders',
@@ -11,10 +15,16 @@ import { MessageService } from 'primeng/api';
 export class OrdersComponent {
 
   orderData:Order[]|undefined
+  orderProductData:Cart[]|undefined
 
-  constructor(private order:OrderService, private messageService: MessageService){}
+  constructor(private order:OrderService,private cart: CartService, 
+  private messageService: MessageService, private router:Router){}
 
   ngOnInit(): void {
+    this.cart.currentCart().subscribe((result) =>{
+      this.orderProductData = result;
+    });
+
     this.getOrderList();
   }
 
@@ -35,6 +45,11 @@ export class OrdersComponent {
     error => {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.message });
     });
+  }
+
+  // Roting navigate Order Details page
+  orderDetail(){
+    this.router.navigate(['order-detail']);
   }
 
 }

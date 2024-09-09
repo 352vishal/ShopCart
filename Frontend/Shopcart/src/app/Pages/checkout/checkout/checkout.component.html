@@ -53,7 +53,7 @@
           <h4 class="inline alignright">Total</h4>
         <div *ngFor="let cart of CartData">
           <p class="inline difwidth">{{cart.productDescription}}</p>
-          <h5 class="inline alignright center">{{cart.productPrice}}</h5>
+          <h5 class="inline alignright center">{{cart.productPrice | currency: 'INR'}}</h5>
         </div>
         <div><h5>Cart Subtotal</h5></div>
         <div>
