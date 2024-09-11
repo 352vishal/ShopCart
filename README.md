@@ -32,8 +32,8 @@ To run client please run `ng serve`
 - User Sign-Up Page
 ![signUp](https://github.com/user-attachments/assets/62fdb00e-dcb2-4c4d-b7bc-479c00dd37d6)
 - User Forgot-Password Page
-![Forgot-psw](https://github.com/user-attachments/assets/bd98c1a7-761e-4fdd-9184-d8634d67a2fa)
 ![Forgot-psw](https://github.com/user-attachments/assets/c0c2cb67-8815-4a83-b38a-40adf106370e)
+![Forgot-psw](https://github.com/user-attachments/assets/bd98c1a7-761e-4fdd-9184-d8634d67a2fa)
 - Email sent after user got mail to reset new password
 ![Mail](https://github.com/user-attachments/assets/b731b879-4ad2-4dee-83f8-6401660b1a7d)
 - Click URL to reset new passowrd
