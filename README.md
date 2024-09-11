@@ -60,7 +60,8 @@ To run client please run `ng serve`
 ![order](https://github.com/user-attachments/assets/1d2dd313-6748-48ed-9ae3-a0972d834344)
 
 -Order Details Page
-![order-details](https://github.com/user-attachments/assets/1ab8c036-d8f5-4dca-a82b-777ed06edb80)
+![order-details](https://github.com/user-attachments/assets/5b8c361e-ed0b-4a91-a29d-9017594f77a3)
+
 
 
 
