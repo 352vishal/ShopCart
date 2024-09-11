@@ -44,6 +44,7 @@ To run client please run `ng serve`
 ![user-home](https://github.com/user-attachments/assets/a9c7eaac-d1d0-4831-bb46-928e201438c3)
 ![user-home](https://github.com/user-attachments/assets/a9ff2032-3b34-45d1-8597-549792d91027)
 ![user-home](https://github.com/user-attachments/assets/fa2e1340-d3cd-4756-8e8e-f55cfb490615)
+![user-home](https://github.com/user-attachments/assets/f7d691ea-d584-48d9-bf40-787a8dca626e)
 
 - Product Details Page
 ![product-details](https://github.com/user-attachments/assets/5fab680a-7fe9-4485-9006-d8f6386155f5)
