@@ -63,6 +63,30 @@ To run client please run `ng serve`
 -Order Details Page
 ![order-details](https://github.com/user-attachments/assets/5b8c361e-ed0b-4a91-a29d-9017594f77a3)
 
+## Seller
+- Seller Login Page
+![seller](https://github.com/user-attachments/assets/ce3c94a9-d4f6-4345-a25a-abbbab36ac2a)
+
+-Seller Home Page
+![Seller-home](https://github.com/user-attachments/assets/0c1d6032-ad0d-41cd-a743-5ad0c02f9d86)
+![Seller-home](https://github.com/user-attachments/assets/981860bb-246b-4e0b-9b38-5af688000a9d)
+
+-Seller Dashboard page
+- Seller can add product
+- Seller can Update and Delete product
+![Dashboard](https://github.com/user-attachments/assets/916cf57b-cec1-45ea-ba13-e1d7648a7493)
+- Search Product
+![Screenshot (51)](https://github.com/user-attachments/assets/8467df84-3619-4285-87f2-6ce33aebbc6f)
+- Add Product
+![Screenshot (56)](https://github.com/user-attachments/assets/1c2283ce-c253-4063-b056-4b940b672bb0)
+- Update Product 
+![Screenshot (52)](https://github.com/user-attachments/assets/814f5399-4fbc-436b-ae1b-2fd12f44e393)
+- Delete Product
+![Screenshot (53)](https://github.com/user-attachments/assets/c9675fd3-ca37-4c0d-be6d-3ab6e304436c)
+
+
+
+
 
 
 
