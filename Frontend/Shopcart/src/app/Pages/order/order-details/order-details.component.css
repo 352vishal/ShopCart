@@ -1,7 +1,15 @@
 .gradient-custom {
     margin-top: 50px;
-    }
-    .heading{
+}
+.heading{
     font-family: Montserrat;
     font-size: 15px;
-    }
+}
+.pt-2 {
+    padding-top: 1.5rem !important;
+}
+p.text-muted.mb-0 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

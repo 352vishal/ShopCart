@@ -5,9 +5,9 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-.btn-dark{
+.trash{
 background-color: white;
-color: black;
+color: #f04949;
 border: none;
 }
 .heading{
@@ -16,9 +16,10 @@ border: none;
   font-family: Montserrat;
 }
 .orderId{
-  margin-bottom: 12px;
+  margin-bottom: 12px;  
 }
 .delete-item{
+  display: ruby;
   text-align: end;
 }
 .deleteItem{

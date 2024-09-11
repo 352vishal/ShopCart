@@ -14,7 +14,17 @@ const postUserOrderDetails =  async (req, res) => {
       postcode: req.body.postcode,
       email: req.body.email,
       phone: req.body.phone,
-      totalPrice: req.body.totalPrice
+      totalPrice: req.body.totalPrice,
+      productName: req.body.productName,
+      productImage: req.body.productImage,
+      productDescription: req.body.productDescription,
+      productPrice: req.body.productPrice,
+      productQuantity: req.body.productQuantity,
+      productCategory: req.body.productCategory,
+      productColour: req.body.productColour,
+      shipping: req.body.shipping,
+      discount: req.body.discount,
+      price: req.body.price
     });
     await orderList.save();
 

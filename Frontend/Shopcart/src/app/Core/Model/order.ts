@@ -9,4 +9,14 @@ export interface Order {
     email: string,
     contact: string,
     totalPrice: number,
+    productName: string,
+    productImage?:File,
+    productDescription: string,
+    productPrice: number
+    productColour: string,
+    productQuantity: number,
+    productCategory: string,
+    price: number,
+    shipping: number,
+    discount: number,
 }

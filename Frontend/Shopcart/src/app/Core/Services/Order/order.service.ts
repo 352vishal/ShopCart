@@ -18,6 +18,10 @@ export class OrderService {
   orderList() {
     return this.http.get<Order[]>(`${constant.apiEndPoint.Order}`);
   }
+  // Get single Order Details
+  getOrderDetails(orderId:number){
+    return this.http.get<Order>(`${constant.apiEndPoint.Order}/${orderId}`);
+  }
   // Delete Order Details
   cancelOrder(orderId:number){
     return this.http.delete<Order>(`${constant.apiEndPoint.Order}/${orderId}`);

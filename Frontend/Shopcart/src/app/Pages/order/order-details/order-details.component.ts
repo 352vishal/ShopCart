@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { Product } from '../../../Core/Model/products';
 import { CartService } from '../../../Core/Services/Cart/cart.service';
-import { Cart } from '../../../Core/Model/cart';
+import { Order } from '../../../Core/Model/order';
+import { OrderService } from '../../../Core/Services/Order/order.service';
+import { ActivatedRoute } from '@angular/router';
+import { UserAuthService } from '../../../Core/Services/User-Auth/user-auth.service';
 
 @Component({
   selector: 'app-order-details',
@@ -10,14 +12,29 @@ import { Cart } from '../../../Core/Model/cart';
 })
 export class OrderDetailsComponent {
 
-orderProductData:Cart[]|undefined
+orderProductData:Order[]|undefined
 
-constructor(public product:CartService ){}
+// Display User FullName from Token
+UserfullName : string = "";
+
+constructor(public product:CartService, private order:OrderService,
+private activeRoute: ActivatedRoute, private user:UserAuthService){}
 
 ngOnInit(): void {
-  this.product.currentCart().subscribe((result) =>{
-    this.orderProductData = result;
+// get single order data
+  this.activeRoute.params.subscribe(params => {
+    this.order.getOrderDetails(params['id']).subscribe((result) => {
+      this.orderProductData = [result];
+      console.warn(result);
+    });
   });
-}
 
+    // Display User FullName from Token
+    this.user.getFullNameFromStore()
+    .subscribe(val=>{
+      const fullNameFromToken = this.user.getfullNameFromToken();
+          this.UserfullName = val || fullNameFromToken
+     });
+}
+  
 }

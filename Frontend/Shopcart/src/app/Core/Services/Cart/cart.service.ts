@@ -72,12 +72,11 @@ export class CartService {
 
   // Remove item from MongoDb DataBase to cart functionality
   removeToCart(cartId: number) {
-    return this.http.delete(
-      `${constant.apiEndPoint.Cart}/${cartId}`,
+    return this.http.delete(`${constant.apiEndPoint.Cart}/${cartId}`,
       (this.httpOptions = {
         headers: new HttpHeaders()
           .set('Content-Type', 'application/json')
-          .set('auth-token', '' + localStorage.getItem('token')), // Add JWT token to the request header.
+          .set('auth-token', '' + localStorage.getItem('UserToken')),
       })
     );
   }

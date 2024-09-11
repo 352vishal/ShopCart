@@ -37,7 +37,6 @@ export class ProductDetailsComponent {
     private cart: CartService,
     @Inject(PLATFORM_ID) private platformId: Object,
     private messageService: MessageService,
-    private route: ActivatedRoute
   ) {
     // Carousel code
     config.interval = 2000;

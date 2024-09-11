@@ -16,18 +16,10 @@ export class OrdersComponent {
   // Order Data Display Property
   orderData:Order[]|undefined
 
-  // Cart Data Display Property
-  orderProductData:Cart[]|undefined
-
-  constructor(private order:OrderService,private cart: CartService, 
-  private messageService: MessageService, private router:Router){}
+  constructor(private order:OrderService,private router:Router,
+  private messageService: MessageService){}
 
   ngOnInit(): void {
-    // Get Cart Data from Cart Service
-    this.cart.currentCart().subscribe((result) =>{
-      this.orderProductData = result;
-    });
-
     this.getOrderList();
   }
 
@@ -53,8 +45,8 @@ export class OrdersComponent {
   }
 
   // Roting navigate Order Details page
-  orderDetail(){
-    this.router.navigate(['order-detail']);
+  orderDetail(id: any){
+    this.router.navigate(['order-detail', id]);
   }
 
 }

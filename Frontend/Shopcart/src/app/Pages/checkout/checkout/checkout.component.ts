@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
   styleUrl: './checkout.component.css',
 })
 export class CheckoutComponent {
+
   // Display User ID from Token
   private userPayload: any;
 
@@ -32,6 +33,20 @@ export class CheckoutComponent {
     totalPrice: 0,
   };
 
+  // Product Summary Details
+    productSummary: Cart = {
+      _id: '',
+      userId: '',
+      productName: '',
+      productPrice: 0,
+      productColour: '',
+      productQuantity: 0,
+      productCategory: '',
+      productImage: undefined,
+      productDescription: '',
+      productId: ''
+    };
+
   constructor(
     private cart: CartService,
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -43,6 +58,7 @@ export class CheckoutComponent {
     this.userPayload = this.decodedToken();
   }
   ngOnInit() {
+    
     // Price Summary code
     this.cart.currentCart().subscribe((result) => {
       this.CartData = result;
@@ -56,6 +72,18 @@ export class CheckoutComponent {
         shipping: 30,
         totalPrice: price + 30 - 1000,
       };
+      this.productSummary = {
+        _id: '',
+        userId: '',
+        productName: this.productSummary.productName = this.CartData[0].productName,
+        productPrice: this.productSummary.productPrice = this.CartData[0].productPrice,
+        productColour: this.productSummary.productColour = this.CartData[0].productColour,
+        productQuantity: this.productSummary.productQuantity = this.CartData[0].productQuantity,
+        productCategory: this.productSummary.productCategory = this.CartData[0].productCategory,
+        productImage: this.productSummary.productImage = this.CartData[0].productImage,
+        productDescription: this.productSummary.productDescription = this.CartData[0].productDescription,
+        productId: ''
+      };
     });
   }
 
@@ -65,7 +93,17 @@ export class CheckoutComponent {
     if (this.priceSummary.totalPrice) {
     let orderData: Order = {
       ...data,
+      price: this.priceSummary.price,
       totalPrice: this.priceSummary.totalPrice,
+      shipping: this.priceSummary.shipping,
+      discount: this.priceSummary.discount,
+      productName: this.productSummary.productName,
+      productImage: this.productSummary.productImage,
+      productDescription: this.productSummary.productDescription,
+      productPrice: this.productSummary.productPrice,
+      productColour: this.productSummary.productColour,
+      productQuantity: this.productSummary.productQuantity,
+      productCategory: this.productSummary.productCategory,
       userId,
     };
 
@@ -82,10 +120,10 @@ export class CheckoutComponent {
           summary: 'Success',
           detail: 'Your Order has been Placed',
         });
-        console.log(response);
         setTimeout(() => {
           this.router.navigate(['/order']);
         }, 2000);
+        console.warn(response);
       },
       (error) => {
         this.messageService.add({
