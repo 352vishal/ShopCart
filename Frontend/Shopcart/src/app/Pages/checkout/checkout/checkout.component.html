@@ -57,8 +57,12 @@
         </div>
         <div><h5>Cart Subtotal</h5></div>
         <div>
-          <h5 class="inline difwidth">Shipping and Handling</h5>
+          <h5 class="inline difwidth">Shipping</h5>
           <p class="inline alignright center">{{priceSummary.shipping | currency: 'INR'}}</p>
+        </div>
+        <div>
+          <h5 class="inline difwidth">Discount</h5>
+          <p class="inline alignright center">{{priceSummary.discount | currency: 'INR'}}</p>
         </div>
         <div>
           <h5 class="inline difwidth">Order Total</h5>

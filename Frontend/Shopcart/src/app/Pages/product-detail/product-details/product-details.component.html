@@ -10,7 +10,18 @@
 	            <h2>Product Details</h2>
 	        </div>
 	        <div class="row">
-	        	<div class="col-md-6">
+				<div class="col-1" *ngIf="productData">
+					<div class="box-img">
+						<img src="{{productData.productImage}}" alt="">
+					</div>
+					<div class="box-img">
+						<img src="{{productData.productImage}}" alt="">
+					</div>
+					<div class="box-img">
+						<img src="{{productData.productImage}}" alt="">
+					</div>
+				</div>
+	        	<div class="col-md-5">
                     <ngb-carousel *ngIf="productData">
                         <ng-template ngbSlide>
                           <div class="wrapper">
@@ -65,7 +76,7 @@
 	        			<p>{{productData.productDescription}}</p>
 	        			<div class="row">
 							<div class="color">
-								Color :&nbsp;&nbsp;<h3 [style.backgroundColor]="productData.productColour" class="product-color"></h3>
+								Color :&nbsp;&nbsp;<h3 [style.backgroundColor]="productData.productColour" class="product-color active"></h3>
 								<h3 style="background-color: rgb(34, 155, 60);" class="product-color"></h3>
 								<h3 style="background-color: blueviolet" class="product-color"></h3>
 							</div>
@@ -93,7 +104,11 @@
 							    <div class="qtyminus" (click)="handleQuantity('min')">-</div>
 							    <input type="text" name="quantity" value="{{productQuantity}}" class="qty">
 							    <div class="qtyplus" (click)="handleQuantity('plus')">+</div>
-							</form><br>				
+								<div>
+									<i class="fa-regular fa-heart"></i>		
+								</div>
+							</form><br>		
+							
 								<div class = "purchase-info">
 									<button *ngIf="!removeCart" (click)="addToCart()" type = "button" class = "btn">
 									  Add to Cart <i class = "fas fa-shopping-cart"></i>

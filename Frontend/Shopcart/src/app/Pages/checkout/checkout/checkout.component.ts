@@ -122,7 +122,7 @@ export class CheckoutComponent {
         });
         setTimeout(() => {
           this.router.navigate(['/order']);
-        }, 2000);
+        }, 1000);
         console.warn(response);
       },
       (error) => {
