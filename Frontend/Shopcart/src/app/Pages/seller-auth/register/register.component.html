@@ -36,8 +36,10 @@
       </small>
 
       <div class="input_box">
-        <input type="password"  class="input-field" formControlName="password" required>
-        <label class="label">Password</label>
+        <p-floatLabel>
+          <p-password class="input-field" [(ngModel)]="value" [toggleMask]="true" formControlName="password" required/>
+            <label for="username">Password</label>
+        </p-floatLabel>
         <i class="bx bx-lock-alt icon" id="togglePassword"></i>
       </div>
 
@@ -49,8 +51,10 @@
       </small>
 
       <div class="input_box">
-        <input type="password"  class="input-field" formControlName="confirmPassword" required>
+        <input [type]="eye" type="password"  class="input-field" formControlName="confirmPassword" required>
         <label  class="label">Confirm Password</label>
+        <i (click)="onClick()" *ngIf="!show" class="pi pi-eye" style="font-size: 1rem"></i>
+        <i (click)="onClick()" *ngIf="show" class="pi pi-eye-slash" style="font-size: 1rem"></i>
         <i class="bx bx-lock-alt icon" id="togglePassword"></i>
       </div>
 

@@ -13,6 +13,13 @@ import { User } from '../../../Core/Model/user-auth';
 })
 export class UserRegisterComponent {
 
+  // Password Strong Input Properties
+  value: string | undefined;
+
+  // Conform Password visibility Properties
+  eye: string | undefined;
+  show = false;
+
   // registration form validation code
   UserRegisterForm = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
@@ -46,9 +53,9 @@ export class UserRegisterComponent {
     return this.UserRegisterForm.controls['confirmPassword'];
   }
 
-// The submitDetails function calls from the "registerUser" method from the "auth" Service post request.
-// It post register seller signUp details on the server from mongodb Database.
-UsersubmitDetails() {
+  // The submitDetails function calls from the "registerUser" method from the "auth" Service post request.
+  // It post register seller signUp details on the server from mongodb Database.
+  UsersubmitDetails() {
     const postData = { ...this.UserRegisterForm.value };
     // confirm password code
     delete postData.confirmPassword;
@@ -68,5 +75,16 @@ UsersubmitDetails() {
         }
       }
     )
+  }
+
+  // Conform Password visibility function
+  onClick() {
+    if (this.eye === 'password') {
+      this.eye = 'text';
+      this.show = true;
+    } else {
+      this.eye = 'password';
+      this.show = false;
+    }
   }
 }

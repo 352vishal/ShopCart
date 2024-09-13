@@ -11,6 +11,11 @@ import { CartService } from '../../../Core/Services/Cart/cart.service';
   styleUrl: './user-login.component.css',
 })
 export class UserLoginComponent {
+
+  // Conform Password visibility Properties
+  eye: string | undefined;
+  show = false;
+
   // login form Validations Code
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -63,5 +68,16 @@ export class UserLoginComponent {
   // The `forgotPsw` function navigates to the 'forgot-password' route using the Angular router.
   forgotPsw() {
     this.router.navigate(['user-forgot-password']);
+  }
+
+  // Conform Password visibility function
+  onClick() {
+      if (this.eye === 'password') {
+        this.eye = 'text';
+        this.show = true;
+      } else {
+        this.eye = 'password';
+        this.show = false;
+      }
   }
 }

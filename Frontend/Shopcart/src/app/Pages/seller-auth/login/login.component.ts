@@ -10,6 +10,10 @@ import { isPlatformBrowser, PlatformLocation } from '@angular/common';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  // Conform Password visibility Properties
+  eye: string | undefined;
+  show = false;
   
   // login form Validations Code
   loginForm = this.fb.group({
@@ -61,6 +65,17 @@ export class LoginComponent {
   // The `forgotPsw` function navigates to the 'forgot-password' route using the Angular router.
   forgotPsw(){
     this.router.navigate(['forgot-password'])
+  }
+
+  // Conform Password visibility function
+  onClick() {
+      if (this.eye === 'password') {
+        this.eye = 'text';
+        this.show = true;
+      } else {
+        this.eye = 'password';
+        this.show = false;
+      }
   }
 
 }

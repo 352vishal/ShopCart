@@ -355,14 +355,14 @@ button.normal{
 }
 
 #sm-banner span{
-  color: #0e0e0e;
+  color: white;
   font-size: 16px;
   font-weight: 500;
   padding-bottom: 16px;
 }
 
 button.white{
-  color: #000;
+  color: white;
   padding: 15px 30px;
   font-weight: 400;
   font-size: 14px;
@@ -409,7 +409,7 @@ button.white{
 }
 
 #banner3 h3{
-  color: #ec544e;
+  color: black;
   font-weight: 800;
   font-size: 15px;
 }
@@ -465,6 +465,7 @@ button.white{
   background-color: #088178;
   color: #fff;
   white-space: nowrap;
+  height: 43px;
 }
 
 #newsletter .form{

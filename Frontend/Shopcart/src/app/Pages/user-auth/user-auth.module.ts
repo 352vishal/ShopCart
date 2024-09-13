@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 // Module
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { PasswordModule } from 'primeng/password';
+import { FloatLabelModule } from "primeng/floatlabel"  
 
 import { UserAuthRoutingModule } from './user-auth-routing.module';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -23,6 +25,8 @@ import { UserForgotPasswordComponent } from './user-forgot-password/user-forgot-
     UserAuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    PasswordModule,
+    FloatLabelModule
   ],
   exports: [
     UserLoginComponent,

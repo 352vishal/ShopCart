@@ -1,6 +1,7 @@
 /* POPPINS FONT */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import "primeicons/primeicons.css";
 
 * {
   margin: 0;
@@ -276,5 +277,47 @@ input[type="checkbox"] {
 .close:focus {
   color: black;
   text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Strong Password css */
+
+::ng-deep .p-password {
+  display: block;
+}
+
+::ng-deep input.p-inputtext {
+  padding-left: 0px;
+  padding-top: 14px;
+  border: none;
+}
+
+::ng-deep eyeicon.p-element {
+  padding-top: 5px;
+}
+
+::ng-deep .p-inputtext:enabled:focus {
+  outline: none;
+  outline-offset: none;
+  box-shadow: none;
+  border-color: none;
+}
+::ng-deep .p-float-label {
+  display: flex;
+}
+
+::ng-deep .p-float-label label {
+  line-height: 0;
+  padding-left: 12px;
+}
+
+
+/* Conform Password visibility css */
+.pi-eye, .pi-eye-slash{
+  position: absolute;
+  top: 22px;
+  right: 63px;
+  font-size: 13px;
   cursor: pointer;
 }

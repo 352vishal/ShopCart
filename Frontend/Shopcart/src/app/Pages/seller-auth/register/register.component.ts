@@ -13,6 +13,13 @@ import { passwordMatchValidator } from '../../../shared/password-match.directive
 })
 export class RegisterComponent {
 
+  // Password Strong Inputed Properties
+  value: string | undefined;
+
+  // Conform Password visibility Properties
+  eye: string | undefined;
+  show = false;
+
   // registration form validation code
   registerForm = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
@@ -68,6 +75,17 @@ export class RegisterComponent {
         }
       }
     )
+  }
+
+  // Conform Password visibility function
+  onClick() {
+      if (this.eye === 'password') {
+        this.eye = 'text';
+        this.show = true;
+      } else {
+        this.eye = 'password';
+        this.show = false;
+      }
   }
 
 }

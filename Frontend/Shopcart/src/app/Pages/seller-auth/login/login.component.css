@@ -1,6 +1,7 @@
 /* POPPINS FONT */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import "primeicons/primeicons.css";
 
 * {
   margin: 0;
@@ -277,5 +278,14 @@ input[type="checkbox"] {
 .close:focus {
   color: black;
   text-decoration: none;
+  cursor: pointer;
+}
+
+/* Conform Password visibility css */
+.pi-eye, .pi-eye-slash{
+  position: absolute;
+  top: 22px;
+  right: 63px;
+  font-size: 13px;
   cursor: pointer;
 }

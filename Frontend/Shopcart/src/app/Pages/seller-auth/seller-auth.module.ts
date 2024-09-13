@@ -8,6 +8,8 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PasswordModule } from 'primeng/password';
+import { FloatLabelModule } from "primeng/floatlabel"  
 
 // primeng modules
 import { MessageService } from 'primeng/api';
@@ -45,6 +47,8 @@ import { RegisterComponent } from '../seller-auth/register/register.component';
     InputTextModule,
     ButtonModule,
     BrowserAnimationsModule,
+    PasswordModule,
+    FloatLabelModule,
   ],
   providers: [
     MessageService
