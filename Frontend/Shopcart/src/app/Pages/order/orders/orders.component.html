@@ -1,42 +1,5 @@
-<!-- <div class="container">
-  <div class="heading">
-    <h1>My Orders</h1>
-    <p>Track your open orders & view the summary of your past orders</p>
-  </div>
-  <div class="orderBox" *ngFor="let order of orderData">
-    <div class="orderId">
-      <div class="row">
-        <div class="col-6"><p>Order ID : {{order._id}}</p></div>
-        <div class="col-6 delete-item">
-          <p>Cancel Order</p>
-          <a (click)="cancelOrder(order._id)" class="btn btn-dark trash">
-            <i class="fas fa-trash"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="card bg-light-subtle mt-4">
-      <img src="{{order.productImage}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <div class="text-section">
-          <h5 class="card-title fw-bold">{{order.productName}}</h5>
-          <p class="card-text">{{order.productDescription}}</p>
-        </div>
-        <div class="cta-section">
-          <div>{{order.totalPrice | currency : 'INR'}}</div>
-          <a (click)="orderDetail(order._id)" class="btn btn-dark">More Details</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div> -->
-
-
-<!-- New Code -->
-
-
 <div class="container">
+
   <div class="row header">
     <div class="col-sm-6">
       <h1>My Orders</h1>
@@ -48,9 +11,6 @@
     </div>
     </div>
   </div>
-  <!-- <div class="header">
-
-  </div> -->
 
   <div class="order-summary">
     <div class="order-details">

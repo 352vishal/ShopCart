@@ -123,7 +123,7 @@ ngOnInit() {
     },
     {
       label: 'Grocery',
-      icon: 'pi pi-box',
+      icon: 'pi pi-shopping-bag',
       items: [
           [
               {
@@ -157,23 +157,23 @@ ngOnInit() {
     },
     {
       label: 'Fashion',
-      icon: 'pi pi-box',
+      icon: 'pi pi-barcode',
     },
     {
       label: 'Home & Furniture',
-      icon: 'pi pi-box',
+      icon: 'pi pi pi-box',
     },
     {
       label: 'Appliances',
-      icon: 'pi pi-box',
+      icon: 'pi pi-wrench',
     },
     {
       label: 'Travel',
-      icon: 'pi pi-box',
+      icon: 'pi pi-car',
     },
     {
       label: 'Toys',
-      icon: 'pi pi-box',
+      icon: 'pi pi-gift',
     },
 ]
 
