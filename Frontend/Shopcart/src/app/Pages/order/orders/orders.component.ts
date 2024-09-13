@@ -36,7 +36,7 @@ export class OrdersComponent {
     orderId && this.order.cancelOrder(orderId).subscribe(      
       response => {
       this.getOrderList();
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: "Your Order has been Delete" });
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: "Your Order has been Canceled" });
       console.log(response);
     },
     error => {

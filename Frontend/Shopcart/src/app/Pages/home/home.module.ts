@@ -4,6 +4,9 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
+// Importing the PrimeNG Modules
+import { MegaMenuModule } from 'primeng/megamenu';
+
 @NgModule({
   declarations: [
     HomeComponent
@@ -11,7 +14,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
   imports: [
     CommonModule,
     HomeRoutingModule,
-    NgbModule
+    NgbModule,
+    MegaMenuModule,
   ],
   exports: [
     HomeComponent

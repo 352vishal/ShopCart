@@ -1,75 +1,110 @@
-body {
-  background-color: mintcream;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.trash{
-background-color: white;
-color: #f04949;
-border: none;
-}
-.heading{
-  margin-top: 100px;
-  text-align: center;
+/* New Code */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Montserrat;
 }
-.orderId{
-  margin-bottom: 12px;  
-}
-.delete-item{
-  display: ruby;
-  text-align: end;
-}
-.deleteItem{
-  text-align: end;
-}
-.card {
-  max-height: 11em;
-  flex-direction: row;
-  background-color: #696969;
-  border: 0;
-  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18);
-  margin: 3em auto;
-}
-.card.dark {
-  color: #fff;
-}
-.card.card.bg-light-subtle .card-title {
-  color: dimgrey;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f5f9;
 }
 
-.card img {
-  max-width: 11%;
-  margin: auto;
-  padding: 0.5em;
-  border-radius: 0.7em;
+.fa-trash{
+  cursor: pointer;
 }
-.card-body {
-  display: flex;
+
+.details{
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+
+.header h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.header p {
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.search-bar {
+  text-align: right;
+}
+
+.search-bar input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.order-summary {
   justify-content: space-between;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
-.text-section {
-  max-width: 60%;
+
+.order-details p {
+  margin: 0;
+  font-size: 1em;
 }
-.cta-section {
-  max-width: 40%;
+
+.order-details strong {
+  color: #6c757d;
+}
+
+.order-items {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
 }
-.cta-section .btn {
-  padding: 0.3em 0.5em;
-  /* color: #696969; */
+
+.product {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
-.card.bg-light-subtle .cta-section .btn {
-  background-color: #898989;
-  border-color: #898989;
+
+.product img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin-right: 20px;
 }
-@media screen and (max-width: 475px) {
-  .card {
-    font-size: 0.9em;
-  }
+
+.product-details {
+  flex-grow: 1;
+}
+
+.product-details h3 {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.product-details p {
+  color: #6c757d;
+  /* margin-bottom:  */
 }

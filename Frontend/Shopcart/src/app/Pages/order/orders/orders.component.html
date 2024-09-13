@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="heading">
     <h1>My Orders</h1>
     <p>Track your open orders & view the summary of your past orders</p>
@@ -30,4 +30,55 @@
     </div>
   </div>
 
+</div> -->
+
+
+<!-- New Code -->
+
+
+<div class="container">
+  <div class="row header">
+    <div class="col-sm-6">
+      <h1>My Orders</h1>
+      <p>Track your open orders & view the summary of your past orders.</p>
+    </div>
+    <div class="col-sm-6">
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+    </div>
+    </div>
+  </div>
+  <!-- <div class="header">
+
+  </div> -->
+
+  <div class="order-summary">
+    <div class="order-details">
+      <div class="row">
+        <div class="col-sm-4"><p><strong>Order Number</strong><br>45123</p></div>
+        <div class="col-sm-4"><p><strong>Order Date</strong><br>7 February 2023</p></div>
+        <div class="col-sm-4"><p><strong>Total Amount</strong><br>$123.00</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-items">
+    <!-- First Product -->
+    <div class="product" *ngFor="let order of orderData">
+      <img src="{{order.productImage}}" alt="Product Image 1">
+      <div class="product-details">
+        <div class="col-6"><p>Order ID : {{order._id}}</p></div>
+        <h3>{{order.productName}}</h3>
+        <p>{{order.productColour}}</p>
+        <p>{{order.totalPrice | currency : 'INR'}}</p>
+        <a (click)="orderDetail(order._id)" class="details">More Details</a>
+        &nbsp;&nbsp;&nbsp;
+        <i (click)="cancelOrder(order._id)" class="fas fa-trash"></i>
+      </div>
+      <div class="delivery-status">
+        <span class="status-icon">✔</span>
+        <span>Delivered on 7 February 2023</span>
+      </div>
+    </div>
+  </div>
 </div>

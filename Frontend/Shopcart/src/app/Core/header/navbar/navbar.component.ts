@@ -11,12 +11,11 @@ import { CartService } from '../../Services/Cart/cart.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
+  
 // Add to cart Propertie 
 cartItems=0;  
 
 // Sidenavbar properties 
-leftSidebar: boolean = false;
 sellerRightSidebar: boolean = false;
 userRightSidebar: boolean = false;
 

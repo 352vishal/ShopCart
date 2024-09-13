@@ -5,7 +5,6 @@
     <input type="checkbox" id="show-menu">
     <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
     <div class="nav-content">
-        <p-button class="home-side-nav" icon="pi pi-bars" [link]="true" (onClick)="leftSidebar = true" />
       <div class="logo">
         <a routerLink="">
         <img class="logo-img" src="https://i.ibb.co/LRDshNz/img1.jpg" alt="ShopCart"> 
@@ -49,23 +48,6 @@
 
 
 <div class="card flex justify-content-center">
-
-  <!-- Home Left Side Menu -->
-<p-sidebar [(visible)]="leftSidebar">
-    <div class=" flex justify-content-center">
-      <ul [ngStyle]="{'list-style': 'none'}">
-        <li>
-          <a style="cursor: pointer; padding: 12px;">Category</a>
-        </li><br>
-        <li>
-          <a style="cursor: pointer; padding: 12px;">Category</a>
-        </li><br>
-        <li>
-          <a style="cursor: pointer; padding: 12px;">Category</a>
-        </li>
-      </ul>
-  </div>
-</p-sidebar>
 
   <!-- Seller Right Side Menu -->
 <p-sidebar [(visible)]="sellerRightSidebar" position="right">

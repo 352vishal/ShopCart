@@ -3,7 +3,18 @@
 html {
   scroll-behavior: smooth;
 }
-
+/* catagory css */
+.catagory{
+  margin-top: 80px;
+  width: 96%;
+  margin-left: 25px;
+}
+::ng-deep .p-ripple {
+  text-decoration: none;
+}
+.sale-template img{
+  width: 100%;
+}
 *{
   margin: 0;
   padding: 0; 
@@ -587,10 +598,14 @@ footer .copyright{
 }
 
 @media (max-width: 477px) {
+
+  .catagory{
+    display: none;
+   }
   .section-p1{
     padding: 20px
   }
-  
+
   #hero{
     padding: 0 20px;
     background-position: 55%;
