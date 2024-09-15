@@ -5,6 +5,13 @@ import { CheckoutRoutingModule } from './checkout-routing.module';
 import { CheckoutComponent } from './checkout/checkout.component';
 // Form Module
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { StepperModule } from 'primeng/stepper';
+import { InputTextModule } from 'primeng/inputtext';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   declarations: [
@@ -14,7 +21,14 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CheckoutRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ButtonModule,
+    StepperModule,
+    InputTextModule,
+    ToggleButtonModule,
+    IconFieldModule,
+    InputIconModule,
+    PasswordModule
   ]
 })
 export class CheckoutModule { }

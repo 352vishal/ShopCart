@@ -1,3 +1,5 @@
+@import "primeicons/primeicons.css";
+
 /* @charset "utf-8"; */
 /* CSS Document */
 
@@ -48,6 +50,51 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* Stepper code */
+.stepper{
+	margin-top: 100px;
+}
+.border-none{
+	border: none;
+}
+::ng-deep .bg-primary {
+	background-color: #3b82f6 !important;
+	width: 12% !important;
+	border-radius: 8px !important;
+}
+::ng-deep p-password input{
+	border-radius: 10px;
+}
+::ng-deep button.p-ripple {
+	border-radius: 12px;
+}
+::ng-deep .p-button{
+	margin: 5px;
+    font-size: 12px;
+}
+.pi-user, .pi-star , .pi-id-card{
+	font-size: 18px;
+	padding: 12px;
+}
+.user-icone{
+	padding: 0;
+}
+.border-round{
+	padding: 12px;
+}
+.text-center{
+	font-weight: bold;
+	font-family: Montserrat;
+}
+.field input{
+	padding-left: 2.5rem;
+	border-radius: 10px;
+}
+span.step-icon {
+    padding-left: 10px;
+}
+
 
 
 /* Form Styles */
@@ -530,6 +577,7 @@ a:hover
 	border: 12px solid #f5f5f5;
 	padding: 30px;
 	margin-top: 28px;
+	margin-bottom: 30px;
 }
 
 .order div:not(.qty)

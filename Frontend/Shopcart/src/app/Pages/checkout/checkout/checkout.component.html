@@ -1,87 +1,167 @@
 <!-- <h1 style="margin-top: 100px;">Checkout</h1> -->
 <div class="wrapper">
   <div class="row">
-    <form method="get" class="common-form" (ngSubmit)="orderNowProduct(orderData.value)" #orderData="ngForm">
-      <div class="col-7 col">
-        <h3 class="topborder"><span>Billing Details</span></h3>
-        <div class="width50 padright">
-          <label for="fname">First Name</label>
-          <input type="text" name="fname" id="fname" placeholder="First Name" ngModel required>
-        </div>
-        <div class="width50">
-          <label for="lname">Last Name</label>
-          <input type="text" name="lname" id="lname" placeholder="Last Name" ngModel required>
-        </div>
-        <label for="address">Address</label>
-        <input type="text" name="address" id="address" placeholder="Address" ngModel required>
-        <input type="text" name="address" id="address2" placeholder="Optional">
-        <label for="city">Town / City</label>
-        <input type="text" name="city" id="city" ngModel required>
-        <div class="width50 padright">
-          <label for="State">State</label>
-          <select name="State" id="State" required>
-            <option value="">Please select a State</option>
-            <option value="ab">Maharashtra</option>
-            <option value="bc">Gujrat</option>
-            <option value="mb">Rajasthan</option>
-            <option value="nb">Chattisgarh</option>
-            <option value="nl">Utter Pradesh</option>
-            <option value="ns">Madhya Pradesh</option>
-          </select>
-        </div>
-        <div class="width50">
-          <label for="postcode">Postcode</label>
-          <input type="text" name="postcode" id="postcode" placeholder="Postcode / Zip" ngModel required>
-        </div>
-        <div class="width50 padright">
-          <label for="email">Email Address</label>
-          <input type="text" name="email" id="email" placeholder="Enter Email id" ngModel required>
-        </div>
-        <div class="width50">
-          <label for="tel">Phone</label>
-          <input type="text" name="tel" id="tel" placeholder="Enter Phone No." ngModel required>
-        </div>
-        <input type="checkbox" value="2" name="checkbox"><p>Create an account?</p>
-        <h3 class="topborder"><span>Shipping Address</span></h3>
-        <input type="checkbox" value="3" name="checkbox"><p>Ship to a different address?</p>
-        <label for="notes" class="notes">Order Notes</label>
-        <textarea name="notes" id="notes" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-      </div>
-      <div class="col-5 col order">
-        <h3 class="topborder"><span>Your Order</span></h3>
-          <h4 class="inline">Product</h4>
-          <h4 class="inline alignright">Total</h4>
-        <div *ngFor="let cart of CartData">
-          <p class="inline difwidth">{{cart.productDescription}}</p>
-          <h5 class="inline alignright center">{{cart.productPrice | currency: 'INR'}}</h5>
-        </div>
-        <div><h5>Cart Subtotal</h5></div>
-        <div>
-          <h5 class="inline difwidth">Shipping</h5>
-          <p class="inline alignright center">{{priceSummary.shipping | currency: 'INR'}}</p>
-        </div>
-        <div>
-          <h5 class="inline difwidth">Discount</h5>
-          <p class="inline alignright center">{{priceSummary.discount | currency: 'INR'}}</p>
-        </div>
-        <div>
-          <h5 class="inline difwidth">Order Total</h5>
-          <p class="inline alignright center">{{priceSummary.totalPrice | currency: 'INR'}}</p>
-        </div>
-        <div>
-          <h3 class="topborder"><span>Payment Method</span></h3>
-          <input type="radio" value="banktransfer" name="payment" checked><p>Direct Bank Transfer</p>
-          <p class="padleft">
-            Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won't be shipped until the funds have cleared in our account.
-          </p>
-        </div>
 
-        <div><input type="radio" value="cheque" name="payment"><p>Cash on delivery</p></div>
-        <div>
-          <input type="radio" value="paypal" name="payment"><p>Paypal</p>
-        </div>
-        <input type="submit" name="submit" value="Place Order" class="redbutton">
+    
+    <!-- order Step code -->
+
+    <div class="stepper">
+      <div class="card flex justify-content-center">
+        <p-stepper [(activeStep)]="active">
+            <p-stepperPanel>
+                <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" (click)="onClick.emit()">
+                        <span
+                            class="border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center"
+                            [ngClass]="{
+                                'bg-primary border-primary': index <= active,
+                                'surface-border': index > active
+                            }"
+                        >
+                            <i class="pi pi-user"></i><span>Login</span>
+                        </span>
+                    </button>
+                </ng-template>
+                <ng-template pTemplate="content" let-nextCallback="nextCallback">
+                    <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
+                        <div class="text-center mt-3 mb-3 text-xl font-semibold">Login</div>
+                        <div class="field p-fluid">
+                            <p-iconField>
+                                <p-inputIcon>
+                                    <i class="pi pi-user user-icone"></i>
+                                </p-inputIcon>
+                                <input [(ngModel)]="name" pInputText id="input" type="text" placeholder="Name" />
+                            </p-iconField>
+                        </div>
+                        <div class="field p-fluid">
+                            <p-iconField>
+                                <p-inputIcon>
+                                    <i class="pi pi-envelope"></i>
+                                </p-inputIcon>
+                                <input [(ngModel)]="email" pInputText id="email" type="email" placeholder="Email" />
+                            </p-iconField>
+                        </div>
+                        <div class="field p-fluid">
+                            <p-password [(ngModel)]="password" [toggleMask]="true" placeholder="Password" />
+                        </div>
+                    </div>
+                    <div class="flex pt-4 justify-content-end next">
+                        <p-button (onClick)="nextCallback.emit()" label="Next" icon="pi pi-arrow-right" iconPos="right" />
+                    </div>
+                </ng-template>
+            </p-stepperPanel>
+            <p-stepperPanel>
+                <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" (click)="onClick.emit()">
+                        <span
+                            class="border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center"
+                            [ngClass]="{
+                                'bg-primary border-primary': index <= active,
+                                'surface-border': index > active
+                            }"
+                        >
+                            <i class="pi pi-truck"></i><span class="step-icon">Address</span>
+                        </span>
+                    </button>
+                </ng-template>
+                <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback">
+                  <form (ngSubmit)="orderNowProduct(orderData.value)" #orderData="ngForm">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" placeholder="Address" ngModel required>
+                    <input type="text" name="address" id="address2" placeholder="Optional">
+                    <label for="city">Town / City</label>
+                    <input type="text" name="city" id="city" ngModel required>
+                    <div class="width50 padright">
+                      <label for="State">State</label>
+                      <select name="State" id="State" required>
+                        <option value="">Please select a State</option>
+                        <option value="ab">Maharashtra</option>
+                        <option value="bc">Gujrat</option>
+                        <option value="mb">Rajasthan</option>
+                        <option value="nb">Chattisgarh</option>
+                        <option value="nl">Utter Pradesh</option>
+                        <option value="ns">Madhya Pradesh</option>
+                      </select>
+                    </div>
+                    <div class="width50">
+                      <label for="postcode">Postcode</label>
+                      <input type="text" name="postcode" id="postcode" placeholder="Postcode / Zip" ngModel required>
+                    </div>
+                    <div class="width50 padright">
+                      <label for="email">Email Address</label>
+                      <input type="text" name="email" id="email" placeholder="Enter Email id" ngModel required>
+                    </div>
+                    <div class="width50">
+                      <label for="tel">Phone</label>
+                      <input type="text" name="tel" id="tel" placeholder="Enter Phone No." ngModel required>
+                    </div>
+                  </form>
+                    <div class="flex pt-4 justify-content-between">
+                        <p-button (onClick)="prevCallback.emit()" label="Back" severity="secondary" icon="pi pi-arrow-left" />
+                        <p-button (onClick)="nextCallback.emit()" label="Next" icon="pi pi-arrow-right" iconPos="right" />
+                    </div>
+                </ng-template>
+            </p-stepperPanel>
+            <p-stepperPanel>
+                <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" (click)="onClick.emit()">
+                        <span
+                            class="border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center"
+                            [ngClass]="{
+                                'bg-primary border-primary': index <= active,
+                                'surface-border': index > active
+                            }"
+                        >
+                            <i class="pi pi-wallet"></i><span class="step-icon">Billing</span>
+                        </span>
+                    </button>
+                </ng-template>
+                <ng-template pTemplate="content" let-prevCallback="prevCallback">
+                  <form (ngSubmit)="orderNowProduct(orderData.value)" #orderData="ngForm">
+                    <div class="col-12 col order">
+                      <h3 class="topborder"><span>Your Order</span></h3>
+                        <h4 class="inline">Product</h4>
+                        <h4 class="inline alignright">Total</h4>
+                      <div *ngFor="let cart of CartData">
+                        <p class="inline difwidth">{{cart.productDescription}}</p>
+                        <h5 class="inline alignright center">{{cart.productPrice | currency: 'INR'}}</h5>
+                      </div>
+                      <div><h5>Cart Subtotal</h5></div>
+                      <div>
+                        <h5 class="inline difwidth">Shipping</h5>
+                        <p class="inline alignright center">{{priceSummary.shipping | currency: 'INR'}}</p>
+                      </div>
+                      <div>
+                        <h5 class="inline difwidth">Discount</h5>
+                        <p class="inline alignright center">{{priceSummary.discount | currency: 'INR'}}</p>
+                      </div>
+                      <div>
+                        <h5 class="inline difwidth">Order Total</h5>
+                        <p class="inline alignright center">{{priceSummary.totalPrice | currency: 'INR'}}</p>
+                      </div>
+                      <div>
+                        <h3 class="topborder"><span>Payment Method</span></h3>
+                        <input type="radio" value="banktransfer" name="payment" checked><p>Direct Bank Transfer</p>
+                        <p class="padleft">
+                          Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won't be shipped until the funds have cleared in our account.
+                        </p>
+                      </div>
+              
+                      <div><input type="radio" value="cheque" name="payment"><p>Cash on delivery</p></div>
+                      <div>
+                        <input type="radio" value="paypal" name="payment"><p>Paypal</p>
+                      </div>
+                      <input type="submit" name="submit" value="Place Order" class="redbutton">
+                    </div>
+                  </form>
+
+                    <div class="flex pt-4 justify-content-start">
+                        <p-button (onClick)="prevCallback.emit()" label="Back" severity="secondary" icon="pi pi-arrow-left" />
+                    </div>
+                </ng-template>
+            </p-stepperPanel>
+        </p-stepper>
       </div>
-    </form>
+    </div>
   </div>
 </div>

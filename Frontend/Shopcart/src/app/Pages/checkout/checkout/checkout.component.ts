@@ -16,6 +16,35 @@ import { Router } from '@angular/router';
 })
 export class CheckoutComponent {
 
+  // Order Stepper Prperties
+  active: any | undefined = 0;
+
+  name: any | undefined = null;
+
+  email: any | undefined = null;
+
+  password: any | undefined = null;
+
+  option1: boolean | undefined = false;
+
+  option2: boolean | undefined = false;
+
+  option3: boolean | undefined = false;
+
+  option4: boolean | undefined = false;
+
+  option5: boolean | undefined = false;
+
+  option6: boolean | undefined = false;
+
+  option7: boolean | undefined = false;
+
+  option8: boolean | undefined = false;
+
+  option9: boolean | undefined = false;
+
+  option10: boolean | undefined = false;
+
   // Display User ID from Token
   private userPayload: any;
 

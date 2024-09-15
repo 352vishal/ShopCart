@@ -73,13 +73,7 @@ body {
   color: #6c757d;
 }
 
-.order-items {
-  display: flex;
-  flex-direction: column;
-}
-
 .product {
-  display: flex;
   align-items: center;
   background-color: white;
   padding: 15px;

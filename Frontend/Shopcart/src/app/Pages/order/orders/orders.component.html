@@ -23,22 +23,29 @@
   </div>
 
   <div class="order-items">
-    <!-- First Product -->
-    <div class="product" *ngFor="let order of orderData">
-      <img src="{{order.productImage}}" alt="Product Image 1">
-      <div class="product-details">
-        <div class="col-6"><p>Order ID : {{order._id}}</p></div>
-        <h3>{{order.productName}}</h3>
-        <p>{{order.productColour}}</p>
-        <p>{{order.totalPrice | currency : 'INR'}}</p>
-        <a (click)="orderDetail(order._id)" class="details">More Details</a>
-        &nbsp;&nbsp;&nbsp;
-        <i (click)="cancelOrder(order._id)" class="fas fa-trash"></i>
+      <div class="product" *ngFor="let order of orderData">
+        <div class="row">
+        <div class="col-sm-4">
+          <div><p>Order ID : {{order._id}}</p></div>
+          <img src="{{order.productImage}}" alt="Product Image 1">
+        </div>
+        <div class="col-sm-4">        
+          <div class="product-details">
+            <h3>{{order.productName}}</h3>
+            <p>{{order.productColour}}</p>
+            <p>{{order.totalPrice | currency : 'INR'}}</p>
+            <a (click)="orderDetail(order._id)" class="details">More Details</a>
+            &nbsp;&nbsp;&nbsp;
+            <i (click)="cancelOrder(order._id)" class="fas fa-trash"></i>
+          </div>
+        </div>
+        <div class="col-sm-4">        
+          <div class="delivery-status"></div>
+          <span class="status-icon">✔</span>
+          <span>Delivered on 7 February 2023</span>
+        </div>
       </div>
-      <div class="delivery-status">
-        <span class="status-icon">✔</span>
-        <span>Delivered on 7 February 2023</span>
-      </div>
-    </div>
+     </div>
   </div>
+  
 </div>
