@@ -55,8 +55,17 @@
 	        	<div class="col-md-6">
 	        		<div class="product-dtl" *ngIf="productData">
         				<div class="product-info">
-		        			<div class="product-name">{{productData.productName}}</div>
-		        			<div class="reviews-counter">
+							<div class="d-flex justify-content-between pt-2 product-name">
+								<p-breadcrumb class="max-w-full" [model]="items" [home]="home"/>
+								<p class="text-muted mb-0">
+								  <span class="fw-bold me-4"><a class="share-product">
+									<p-speedDial [model]="dial" direction="down" transitionDelay="80" showIcon="pi pi-bars" 
+									hideIcon="pi pi-times" buttonClassName="p-button-outlined"/>
+									Share</a></span>
+								</p>
+							</div>
+							<div class="product-name">{{productData.productName}}</div>
+							<div class="reviews-counter">
 								<div class="rate">
 								    <input type="radio" id="star5" name="rate" value="5" checked />
 								    <label for="star5" title="text">5 stars</label>

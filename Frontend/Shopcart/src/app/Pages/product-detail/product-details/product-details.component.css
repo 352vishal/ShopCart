@@ -96,8 +96,42 @@
 	font-size: 22px;
 	font-weight: 500;
 	line-height: 22px;
-	margin-bottom: 4px;
+	margin-bottom: 10px;
 }
+
+/* Catogory product css */
+::ng-deep nav {
+	border: none;
+}
+::ng-deep nav ol{
+	margin-left: -42px;
+	/* margin-top: -9px; */
+}
+
+/* Share Button css */
+
+.share-product{
+	cursor: pointer;
+}
+
+/* Dial pad Css */
+
+::ng-deep .p-breadcrumb {
+	padding-top: 5px;
+}
+::ng-deep .p-button {
+    color: black;
+    background: white;
+    border: none;
+}
+::ng-deep .p-button:focus {
+    box-shadow: none;
+}
+::ng-deep  .p-speeddial-button.p-button.p-button-icon-only {
+    margin-left: 45px;
+    margin-top: -16px;
+}
+
 .product-price-discount {
 	font-size: 22px;
     font-weight: 400;

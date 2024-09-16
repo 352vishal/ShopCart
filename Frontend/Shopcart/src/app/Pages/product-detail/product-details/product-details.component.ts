@@ -4,7 +4,7 @@ import { Product } from '../../../Core/Model/products';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../../Core/Services/Products/products.service';
 import { isPlatformBrowser } from '@angular/common';
-import { MessageService } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 import { Cart } from '../../../Core/Model/cart';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { CartService } from '../../../Core/Services/Cart/cart.service';
@@ -14,6 +14,14 @@ import { CartService } from '../../../Core/Services/Cart/cart.service';
   styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent {
+
+  // Dialir
+  dial: MenuItem[] | any;
+
+  // Category product propertie
+  items: MenuItem[] | undefined;
+
+  home: MenuItem | undefined;
   
   // Display User ID from Token
   private userPayload: any;
@@ -48,6 +56,34 @@ export class ProductDetailsComponent {
   }
 
   ngOnInit() {
+
+    // Dialir icon
+    this.dial = [
+      {
+          icon: 'pi pi-whatsapp',
+          url: 'https://www.facebook.com/'
+      },
+      {
+          icon: 'pi pi-facebook',
+          url: 'https://www.facebook.com/'
+      },
+      {
+          icon: 'pi pi-twitter',
+          target:'_blank',
+          url: 'https://www.twitter.com/'
+      }
+  ];
+
+    // Category product items
+    this.items = [
+      { label: 'Fashion' },
+      { label: 'Cloths' }, 
+      { label: 'Shirt' }
+  ];
+
+  this.home = { icon: 'pi pi-home', routerLink: '/' };
+
+
     let datatId = this.activeRoute.snapshot.paramMap.get('id');
     datatId &&
       this.productSingleId
