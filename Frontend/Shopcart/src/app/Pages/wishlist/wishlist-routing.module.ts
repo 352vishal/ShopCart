@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { authGuard } from '../../Core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path:"wishlist",
-    component: WishlistComponent
+    component: WishlistComponent,
+    canActivate: [authGuard]
   },
 ];
 

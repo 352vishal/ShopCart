@@ -1,7 +1,7 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Product } from '../../../Core/Model/products';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../../../Core/Services/Products/products.service';
 import { isPlatformBrowser } from '@angular/common';
 import { MenuItem, MessageService } from 'primeng/api';
@@ -50,7 +50,8 @@ export class ProductDetailsComponent {
     private cart: CartService,
     @Inject(PLATFORM_ID) private platformId: Object,
     private messageService: MessageService,
-    private wishlist: WishlistService
+    private wishlist: WishlistService,
+    private router: Router
   ) {
     // Carousel code
     config.interval = 2000;
@@ -186,6 +187,9 @@ export class ProductDetailsComponent {
   // Add To Whishlist Functionality
   addToWishlist() {
     if (this.productData) {
+      if (!localStorage.getItem('UserToken')) {
+      this.router.navigate(['user-login']);
+      }
         let userId = this.userPayload._id;
         let cartData: Wishlist = {
           ...this.productData,
