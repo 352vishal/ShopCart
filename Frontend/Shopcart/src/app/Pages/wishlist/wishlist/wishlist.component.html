@@ -1,0 +1,23 @@
+
+    <section id="product1" class="section-p1" >
+        <h2>My Wishlist</h2>
+        <div class="pro-container">
+          <div class="pro" *ngFor="let items of products">
+            <img (click)="productDetails(items._id)" [src]="items.productImage" alt="Carton Leave Tshirts">
+            <div class="des">
+              <span>{{items.productName}}</span>
+              <h5>{{items.productDetails}}</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+              </div>
+              <h4>{{items.productPrice | currency: 'INR' }}</h4>
+            </div>
+            <a><i (click)="DeleteItem(items._id)" class="fal fa-trash cart"></i></a>
+          </div>
+        </div>
+    </section>
+    

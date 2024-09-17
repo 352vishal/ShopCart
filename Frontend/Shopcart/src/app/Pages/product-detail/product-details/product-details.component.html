@@ -114,7 +114,10 @@
 							    <input type="text" name="quantity" value="{{productQuantity}}" class="qty">
 							    <div class="qtyplus" (click)="handleQuantity('plus')">+</div>
 								<div>
-									<i class="fa-regular fa-heart"></i>		
+									<!-- Add item Whishlist Functionality -->
+									<i (click)="addToWishlist()" *ngIf="!removeWishlist" class="pi pi-heart heart"></i>
+									<!-- Remove item Whishlist Functionality -->
+									<i (click)="removeToWishlist()" *ngIf="removeWishlist" class="pi pi-heart-fill heart"></i>		
 								</div>
 							</form><br>		
 							

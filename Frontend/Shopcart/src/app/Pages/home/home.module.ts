@@ -19,6 +19,6 @@ import { MegaMenuModule } from 'primeng/megamenu';
   ],
   exports: [
     HomeComponent
-  ]
+  ],
 })
 export class HomeModule { }

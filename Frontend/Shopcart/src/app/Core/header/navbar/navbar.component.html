@@ -13,6 +13,7 @@
     </div>
        <!-- Without login Nabvar -->
       <ul class="links" *ngSwitchCase="'default'">
+        <li><a routerLink="wishlist"><i class="fa-solid fa-heart"></i></a></li>
         <li><a class="nav-login" routerLink="user-login"><i class="fa-solid fa-user"></i></a></li>
         <li><a routerLink="login"><i class="fa fa-store"></i></a></li>
         <li routerLink="user-login"><a ><mat-icon matBadge="{{cartItems}}" aria-hidden="false"><i class="fa-solid fa-cart-shopping"></i></mat-icon></a></li>
@@ -95,7 +96,7 @@
           <a (click)="userRightSidebar = false" routerLink="order"><i class="fa fa-truck-fast">&nbsp;&nbsp;Orders</i></a>
         </li><br>
         <li>
-          <a style="cursor: pointer; padding: 12px;"><i class="fa fa-heart">&nbsp;&nbsp;Whishlist</i></a>
+          <a style="cursor: pointer; padding: 12px;" (click)="userRightSidebar = false" routerLink="wishlist"><i class="fa fa-heart">&nbsp;&nbsp;Whishlist</i></a>
         </li><br>
         <li>
           <a style="cursor: pointer; padding: 12px;"><i class="fa fa-bell">&nbsp;&nbsp;Notification</i></a>

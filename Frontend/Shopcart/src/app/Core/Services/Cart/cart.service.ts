@@ -10,6 +10,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root',
 })
 export class CartService {
+  
   private httpOptions = {};
 
   // Display User ID from Token
@@ -57,6 +58,7 @@ export class CartService {
     }
   }
 
+  // Get single wishlist item
   getCartList(userId: number) {
     return this.http
       .get<Product[]>(`${constant.apiEndPoint.Cart}?userId=${userId}`, {

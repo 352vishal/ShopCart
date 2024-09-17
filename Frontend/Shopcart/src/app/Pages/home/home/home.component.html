@@ -99,7 +99,10 @@
           </div>
           <h4>{{items.productPrice | currency: 'INR' }}</h4>
         </div>
-        <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+        <!-- Add item Whishlist Functionality -->
+        <a ><i (click)="addToWishlist()" *ngIf="!removeWishlist" class="pi pi-heart heart cart"></i></a>
+        <!-- Remove item Whishlist Functionality -->
+        <a ><i (click)="removeToWishlist()" *ngIf="removeWishlist" class="pi pi-heart-fill fill-cart" aria-hidden="true"></i></a>
       </div>
     </div>
   </section>
@@ -108,7 +111,7 @@
     <h4> Repair Service</h4>
     <h2>Up to <span>70% off </span> - All Tshirts and Accessories</h2>
     <button class="btn normal">Explore more</button>
-    </section>
+  </section>
   
   <section id="product1" class="section-p1">
     <h2>New Arrivals</h2>

@@ -1,3 +1,4 @@
+@import "primeicons/primeicons.css";
 
 .productImage{
 	width: 100%;
@@ -325,7 +326,7 @@
 	cursor: pointer;
 }
 
-.fa-heart{
+.heart{
     margin-left: 50px;
     margin-top: 4px;
     font-size: 25px;

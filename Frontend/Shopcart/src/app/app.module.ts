@@ -19,6 +19,8 @@ import { UserAuthModule } from './Pages/user-auth/user-auth.module';
 import { CartModule } from './Pages/cart/cart.module';
 import { CheckoutModule } from './Pages/checkout/checkout.module';
 import { OrderModule } from './Pages/order/order.module';
+import { ErrorPageModule } from './Pages/error-page/error-page.module';
+import { WishlistModule } from './Pages/wishlist/wishlist.module';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { OrderModule } from './Pages/order/order.module';
     UserAuthModule,
     CartModule,
     CheckoutModule,
-    OrderModule],
+    OrderModule,
+    ErrorPageModule,
+    WishlistModule],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent]
 })

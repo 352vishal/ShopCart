@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ProductsService } from '../../../Core/Services/Products/products.service';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import { MegaMenuItem } from 'primeng/api';
+import { MegaMenuItem, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +14,15 @@ export class HomeComponent {
 // Catagory Properties
 items: MegaMenuItem[] | undefined; 
 
+// Get Products List
 products: any
 
-constructor(private product: ProductsService,config: NgbCarouselConfig, private router: Router) {
+// Remove Whishlist item propertie
+removeWishlist = false;
+
+
+constructor(private product: ProductsService,config: NgbCarouselConfig, private router: Router,
+    private messageService: MessageService) {
   // Carousel code
   config.interval = 2000;
   config.keyboard = true;
@@ -189,4 +195,18 @@ getHome() {
 productDetails(id: number){
   this.router.navigate(['products-details',id]);
 }
+
+// Add To Whishlist Functionality
+addToWishlist() {
+   if(this.removeWishlist = true){
+     this.messageService.add({severity: 'success',summary: 'Success',detail: 'Item saved in my whishlist'});
+   }
+    
+}
+  
+// Remove item Whishlist Functionality
+removeToWishlist(){
+   this.removeWishlist = false;
+}
+
 }

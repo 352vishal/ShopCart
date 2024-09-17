@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "primeicons/primeicons.css";
 
 html {
   scroll-behavior: smooth;
@@ -266,7 +267,17 @@ flex-wrap: wrap
   position: absolute;
   bottom: 20px;
   right: 10px;
-  
+}
+#product1 .pro .fill-cart{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: #e8f6ea;
+  border: 1px solid #cce7d0;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
 }
 
 #banner{

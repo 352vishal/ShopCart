@@ -8,6 +8,8 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { Cart } from '../../../Core/Model/cart';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { CartService } from '../../../Core/Services/Cart/cart.service';
+import { WishlistService } from '../../../Core/Services/Wishlist/wishlist.service';
+import { Wishlist } from '../../../Core/Model/wishlist';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -35,16 +37,20 @@ export class ProductDetailsComponent {
   // Remove item from local storage cart propertie
   removeCart = false;
 
+  // Remove Whishlist item propertie
+  removeWishlist = false;
+
   // Remove item from MongoDb Databse cart propertie
   cartData:Product|undefined;
 
   constructor(
     private activeRoute: ActivatedRoute,
     config: NgbCarouselConfig,
-    private productSingleId: ProductsService,
+    private product: ProductsService,
     private cart: CartService,
     @Inject(PLATFORM_ID) private platformId: Object,
     private messageService: MessageService,
+    private wishlist: WishlistService
   ) {
     // Carousel code
     config.interval = 2000;
@@ -86,8 +92,7 @@ export class ProductDetailsComponent {
 
     let datatId = this.activeRoute.snapshot.paramMap.get('id');
     datatId &&
-      this.productSingleId
-        .getSingleSellerProductsList(datatId)
+      this.product.getSingleSellerProductsList(datatId)
         .subscribe((result) => {
           this.productData = result;
 
@@ -166,6 +171,48 @@ export class ProductDetailsComponent {
     }
   }
 
+  // Remove item from local Storage to cart Functionality
+  removeToCart(productId: any) {
+      if (!localStorage.getItem('UserToken')) {
+        this.cart.removeItemFromLocalStorage(productId);
+      } else {
+        this.cart.removeToCart(productId).subscribe((result) => {
+          console.warn(result);
+        });
+      }
+      this.removeCart = false;
+  }
+
+  // Add To Whishlist Functionality
+  addToWishlist() {
+    if (this.productData) {
+        let userId = this.userPayload._id;
+        let cartData: Wishlist = {
+          ...this.productData,
+          userId,
+        };
+        // console.warn(cartData);
+        this.wishlist.addToWishlist(cartData).subscribe((result) => {
+          if (result) {
+            this.wishlist.getsingleWishlistProduct(userId);
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Item saved in my wishlist',
+              key: 'tl',
+            });
+            this.removeWishlist = true;
+          }
+        });
+      
+    }
+  }
+  
+  // Remove item Whishlist Functionality
+  removeToWishlist(){
+    this.removeWishlist = false;
+  }
+
   // Display User ID from Token
   getToken() {
     if (isPlatformBrowser(this.platformId)) {
@@ -184,15 +231,4 @@ export class ProductDetailsComponent {
     }
   }
 
-  // Remove item from local Storage to cart Functionality
-  removeToCart(productId: any) {
-    if (!localStorage.getItem('UserToken')) {
-      this.cart.removeItemFromLocalStorage(productId);
-    } else {
-      this.cart.removeToCart(productId).subscribe((result) => {
-        console.warn(result);
-      });
-    }
-    this.removeCart = false;
-  }
 }

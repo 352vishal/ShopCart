@@ -12,6 +12,7 @@ const sellerRoutes = require("./routes/auth-seller");
 const userRoutes = require("./routes/auth-user");
 const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/orders");
+const wishlistRoutes = require("./routes/wishlist");
 
 // Database path
 require('./Database/db');
@@ -27,5 +28,6 @@ app.use("/api/seller", sellerRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/order", orderRoutes);
+app.use("/api/wishlist", wishlistRoutes);
 
 app.listen(4000, () => console.log("server up and runing on port 4000!"));
