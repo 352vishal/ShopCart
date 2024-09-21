@@ -23,7 +23,8 @@ To run client please run `ng serve`
 - Home Page
 - User Login Page
 - Seller Login Page
-![Home](https://github.com/user-attachments/assets/34be30b6-a7c6-419c-b786-a664f7f484ea)
+![Home](https://github.com/user-attachments/assets/a9f46c22-60f6-4e58-bb2c-f356292f00a9)
+
 
 
 ## User
@@ -41,10 +42,11 @@ To run client please run `ng serve`
 
 
 ## User Home Page
-![user-home](https://github.com/user-attachments/assets/a9c7eaac-d1d0-4831-bb46-928e201438c3)
-![user-home](https://github.com/user-attachments/assets/a9ff2032-3b34-45d1-8597-549792d91027)
-![user-home](https://github.com/user-attachments/assets/fa2e1340-d3cd-4756-8e8e-f55cfb490615)
-![user-home](https://github.com/user-attachments/assets/f7d691ea-d584-48d9-bf40-787a8dca626e)
+![user-home](https://github.com/user-attachments/assets/0de8938a-0884-4dc8-9018-19a6d297d15e)
+![user-home](https://github.com/user-attachments/assets/f8eec9c4-9f13-4c00-8e8b-35e87cb8f5a9)
+![user-home](https://github.com/user-attachments/assets/ecca534b-7b24-4cfa-91ea-0b3a17ed5ce3)
+![user-home](https://github.com/user-attachments/assets/1de7b64a-26df-49a5-ada8-7a53056773d4)
+
 
 - Product Details Page
 ![product-details](https://github.com/user-attachments/assets/5fab680a-7fe9-4485-9006-d8f6386155f5)
