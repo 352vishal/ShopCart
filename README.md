@@ -49,8 +49,8 @@ To run client please run `ng serve`
 
 
 - Product Details Page
-![product-details](https://github.com/user-attachments/assets/5fab680a-7fe9-4485-9006-d8f6386155f5)
-![product-details](https://github.com/user-attachments/assets/e0a38097-eaf9-4664-823d-8a519f709a2e)
+![product-details)](https://github.com/user-attachments/assets/8ee4c9e6-6917-437a-910d-d9163893c433)
+![product-details)](https://github.com/user-attachments/assets/6c3d2722-22e9-4f69-a5cc-5d782683127f)
 
 - Cart Page
 ![cart](https://github.com/user-attachments/assets/2697b1dd-9965-4d9f-82e6-1b6807a4bf99)
