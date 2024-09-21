@@ -53,17 +53,24 @@ To run client please run `ng serve`
 ![product-details)](https://github.com/user-attachments/assets/6c3d2722-22e9-4f69-a5cc-5d782683127f)
 
 - Cart Page
-![cart](https://github.com/user-attachments/assets/2697b1dd-9965-4d9f-82e6-1b6807a4bf99)
+![Cart](https://github.com/user-attachments/assets/59971320-3334-412f-9c50-1553ed4789d3)
+
 
 -Chackout Page
-![chackout](https://github.com/user-attachments/assets/1cd11a3d-a7e6-4402-a1c8-ec2b74ff4da8)
-![checkout](https://github.com/user-attachments/assets/d384a747-0321-4e51-a098-4efe24b35277)
+![checkout](https://github.com/user-attachments/assets/e8058268-a16b-4fd7-b960-408f98ac5d61)
+![checkout](https://github.com/user-attachments/assets/489a1f51-e9e2-4a6b-9d52-89bbea2354ab)
+![checkout](https://github.com/user-attachments/assets/0c54fe2a-01f3-443a-8f8e-69a28f097a11)
+![checkout](https://github.com/user-attachments/assets/444f9cc3-2571-4bff-9795-a5bf90627a28)
+![checkout](https://github.com/user-attachments/assets/6712f8cc-6436-4194-b8de-3556821b7af7)
+
+
 
 -My Order Page
-![order](https://github.com/user-attachments/assets/1d2dd313-6748-48ed-9ae3-a0972d834344)
+![My-order](https://github.com/user-attachments/assets/4f85a64a-7cdc-4be9-b560-e729c123c0c4)
 
 -Order Details Page
-![order-details](https://github.com/user-attachments/assets/5b8c361e-ed0b-4a91-a29d-9017594f77a3)
+![order-details](https://github.com/user-attachments/assets/9d38c8c9-619a-422b-b699-9cd6791caba9)
+
 
 ## Seller
 - Seller Login Page
