@@ -58,9 +58,9 @@ To run client please run `ng serve`
 
 -Chackout Page
 ![checkout](https://github.com/user-attachments/assets/e8058268-a16b-4fd7-b960-408f98ac5d61)
-![checkout](https://github.com/user-attachments/assets/489a1f51-e9e2-4a6b-9d52-89bbea2354ab)
-![checkout](https://github.com/user-attachments/assets/0c54fe2a-01f3-443a-8f8e-69a28f097a11)
 ![checkout](https://github.com/user-attachments/assets/444f9cc3-2571-4bff-9795-a5bf90627a28)
+![checkout](https://github.com/user-attachments/assets/0c54fe2a-01f3-443a-8f8e-69a28f097a11)
+![checkout](https://github.com/user-attachments/assets/489a1f51-e9e2-4a6b-9d52-89bbea2354ab)
 ![checkout](https://github.com/user-attachments/assets/6712f8cc-6436-4194-b8de-3556821b7af7)
 
 
