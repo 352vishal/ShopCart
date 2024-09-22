@@ -13,6 +13,9 @@ html {
 ::ng-deep .p-ripple {
   text-decoration: none;
 }
+::ng-deep ul {
+  margin-bottom: 0;
+}
 .sale-template img{
   width: 100%;
 }

@@ -13,3 +13,6 @@ p.text-muted.mb-0 {
     overflow: hidden;
     white-space: nowrap;
 }
+.img-fluid {
+    border-radius: 10px;
+}

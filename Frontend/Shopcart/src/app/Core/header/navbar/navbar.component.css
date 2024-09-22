@@ -5,6 +5,10 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
+::ng-deep .p-button.p-button-link:not(:disabled):focus {
+    box-shadow: none;
+}
+
 .list-item ul li a{
 color: black;;
 cursor: pointer;

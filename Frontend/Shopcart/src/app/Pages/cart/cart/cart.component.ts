@@ -39,9 +39,9 @@ priceSummary: priceSummary= {
       })
       this.priceSummary = {
         price,
-        discount: 1000,
+        discount: 100,
         shipping: 30,
-        totalPrice: price + 30 - 1000
+        totalPrice: price + 30 - 100
       }
       // if your cart is empty then redirect home page
       if(!this.CartData.length){

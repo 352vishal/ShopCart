@@ -1,8 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { ProductsService } from '../../../Core/Services/Products/products.service';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { MegaMenuItem, MessageService } from 'primeng/api';
+import { WishlistService } from '../../../Core/Services/Wishlist/wishlist.service';
+import { Wishlist } from '../../../Core/Model/wishlist';
+import { Product } from '../../../Core/Model/products';
+import { isPlatformBrowser } from '@angular/common';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +15,15 @@ import { MegaMenuItem, MessageService } from 'primeng/api';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+
+  // Display User ID from Token
+  private userPayload: any;
+    
   // Catagory Properties
   items: MegaMenuItem[] | undefined;
 
   // Get Products List
-  products: any;
+  products: any | Product;
 
   // Remove Whishlist item propertie
   removeWishlist = false;
@@ -23,15 +32,21 @@ export class HomeComponent {
     private product: ProductsService,
     config: NgbCarouselConfig,
     private router: Router,
-    private messageService: MessageService
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private messageService: MessageService,
+    private wishlist: WishlistService
   ) {
     // Carousel code
     config.interval = 2000;
     config.keyboard = true;
     config.pauseOnHover = true;
+
+    // Display User ID from Token
+    this.userPayload = this.decodedToken();
   }
 
   ngOnInit() {
+    
     // Catagory Items List
     this.items = [
       {
@@ -285,11 +300,35 @@ export class HomeComponent {
 
   // Add To Whishlist Functionality
   addToWishlist() {
-    if (!localStorage.getItem('UserToken')) {
-      this.router.navigate(['user-login']);
-    } else {
-      if ((this.removeWishlist = true)) {
-        this.messageService.add({severity: 'success',summary: 'Success',detail: 'Item saved in my whishlist'});
+    if(this.products){
+      if (!localStorage.getItem('UserToken')) {
+        this.router.navigate(['user-login']);
+      } else{
+        let userId = this.userPayload._id;
+        let cartData: Wishlist = {
+          // display all 13 numbers array 
+          userId: userId,
+          productId: this.products[0]._id,
+          productName: this.products[0].productName,
+          productPrice: this.products[0].productPrice,
+          productColour: this.products[0].productColour,
+          productQuantity: this.products[0].productQuantity,
+          productCategory: this.products[0].productCategory,
+          productImage: this.products[0].productImage,
+          productDescription: this.products[0].productDescription,
+        };
+        this.wishlist.addToWishlist(cartData).subscribe((result) => {
+          if (result) {
+            this.wishlist.getsingleWishlistProduct(userId);
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Item saved in my wishlist',
+            });
+            this.removeWishlist = true;
+            console.warn(result);
+          }
+        });
       }
     }
   }
@@ -297,5 +336,23 @@ export class HomeComponent {
   // Remove item Whishlist Functionality
   removeToWishlist() {
     this.removeWishlist = false;
+  }
+
+  // Display User ID from Token
+  getToken() {
+      if (isPlatformBrowser(this.platformId)) {
+        if (localStorage.getItem('UserToken')) {
+        }
+      }
+      return localStorage.getItem('UserToken');
+  }
+  // Display User ID from Token
+  decodedToken() {
+      if (isPlatformBrowser(this.platformId)) {
+        const jwtHelper = new JwtHelperService();
+        const token = this.getToken()!;
+        // console.log(jwtHelper.decodeToken(token))
+        return jwtHelper.decodeToken(token);
+      }
   }
 }

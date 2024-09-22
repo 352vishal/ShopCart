@@ -189,7 +189,7 @@ export class ProductDetailsComponent {
     if (this.productData) {
       if (!localStorage.getItem('UserToken')) {
       this.router.navigate(['user-login']);
-      }
+      }else{
         let userId = this.userPayload._id;
         let cartData: Wishlist = {
           ...this.productData,
@@ -208,6 +208,7 @@ export class ProductDetailsComponent {
             this.removeWishlist = true;
           }
         });
+      }
       
     }
   }
