@@ -85,7 +85,7 @@ export class ProductDetailsComponent {
     this.items = [
       { label: 'Fashion' },
       { label: 'Cloths' }, 
-      { label: 'Shirt' }
+      { label: 'Tshirts' }
   ];
 
   this.home = { icon: 'pi pi-home', routerLink: '/' };

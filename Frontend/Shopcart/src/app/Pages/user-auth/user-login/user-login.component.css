@@ -34,6 +34,19 @@ a {
 a:hover {
   text-decoration: underline;
 }
+.message{
+  background: #fefce8;
+  padding: 7px;
+  padding-left: 15px;
+  border-radius: 12px;
+  color: #db9f1a;
+  height: 33px;
+}
+.message i{
+  font-size: 14px;
+  padding-right: 12px;
+}
+
 
 /* ===== WRAPPER ===== */
 

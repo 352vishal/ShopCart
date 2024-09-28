@@ -10,8 +10,8 @@
       </div>
 
       <small *ngIf="name.invalid && (name.dirty || name.touched)" class="block p-error">
-      <div *ngIf="name.errors?.['required']">Name is required.</div>
-      <div *ngIf="name.errors?.['pattern']">Enter a valid Name</div>
+      <div class="message" *ngIf="name.errors?.['required']"><i class="fa-solid fa-triangle-exclamation"></i>Name is required.</div>
+      <div class="message" *ngIf="name.errors?.['pattern']"><i class="fa-solid fa-triangle-exclamation"></i>Enter a valid Name</div>
       </small>
 
       <div class="input_box">
@@ -21,8 +21,8 @@
       </div>
 
       <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
-        <div *ngIf="email.errors?.['required']">Email is required.</div>
-        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+        <div class="message" *ngIf="email.errors?.['required']"><i class="fa-solid fa-triangle-exclamation"></i>Email is required.</div>
+        <div class="message" *ngIf="email.errors?.['email']"><i class="fa-solid fa-triangle-exclamation"></i>Email should be valid</div>
       </small>
 
       <div class="input_box">
@@ -32,7 +32,7 @@
       </div>
 
       <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
-        <div *ngIf="password.errors?.['required']">Password is required.</div>
+        <div class="message" *ngIf="password.errors?.['required']"><i class="fa-solid fa-triangle-exclamation"></i>Password is required.</div>
       </small>
 
       <div class="input_box">
@@ -44,7 +44,7 @@
       </div>
 
       <small *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="block p-error">
-      <div *ngIf="confirmPassword.errors?.['required']"> Confirm the password </div>
+      <div class="message" *ngIf="confirmPassword.errors?.['required']"><i class="fa-solid fa-triangle-exclamation"></i> Confirm the password </div>
       </small>
       <small class="block p-error" *ngIf="UserRegisterForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid">
         Password should match

@@ -1,3 +1,4 @@
+@import "primeicons/primeicons.css";
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +8,25 @@
 }
 ::ng-deep .p-button.p-button-link:not(:disabled):focus {
     box-shadow: none;
+}
+.pi-heart{
+  font-size: 16px;
+}
+.pi-user{
+  font-size: 16px;
+}
+.pi-shop{
+  font-size: 16px;
+}
+.pi-shopping-cart
+{
+  font-size: 16px;
+}
+.pi-search{
+  font-size: 16px;
+}
+.user-cart i{
+  font-size: 20px;
 }
 
 .list-item ul li a{
