@@ -23,7 +23,8 @@ To run client please run `ng serve`
 - Home Page
 - User Login Page
 - Seller Login Page
-![Home](https://github.com/user-attachments/assets/34be30b6-a7c6-419c-b786-a664f7f484ea)
+![Home](https://github.com/user-attachments/assets/a9f46c22-60f6-4e58-bb2c-f356292f00a9)
+
 
 
 ## User
@@ -41,27 +42,35 @@ To run client please run `ng serve`
 
 
 ## User Home Page
-![user-home](https://github.com/user-attachments/assets/a9c7eaac-d1d0-4831-bb46-928e201438c3)
-![user-home](https://github.com/user-attachments/assets/a9ff2032-3b34-45d1-8597-549792d91027)
-![user-home](https://github.com/user-attachments/assets/fa2e1340-d3cd-4756-8e8e-f55cfb490615)
-![user-home](https://github.com/user-attachments/assets/f7d691ea-d584-48d9-bf40-787a8dca626e)
+![user-home](https://github.com/user-attachments/assets/0de8938a-0884-4dc8-9018-19a6d297d15e)
+![user-home](https://github.com/user-attachments/assets/f8eec9c4-9f13-4c00-8e8b-35e87cb8f5a9)
+![user-home](https://github.com/user-attachments/assets/ecca534b-7b24-4cfa-91ea-0b3a17ed5ce3)
+![user-home](https://github.com/user-attachments/assets/1de7b64a-26df-49a5-ada8-7a53056773d4)
+
 
 - Product Details Page
-![product-details](https://github.com/user-attachments/assets/5fab680a-7fe9-4485-9006-d8f6386155f5)
-![product-details](https://github.com/user-attachments/assets/e0a38097-eaf9-4664-823d-8a519f709a2e)
+![product-details)](https://github.com/user-attachments/assets/8ee4c9e6-6917-437a-910d-d9163893c433)
+![product-details)](https://github.com/user-attachments/assets/6c3d2722-22e9-4f69-a5cc-5d782683127f)
 
 - Cart Page
-![cart](https://github.com/user-attachments/assets/2697b1dd-9965-4d9f-82e6-1b6807a4bf99)
+![Cart](https://github.com/user-attachments/assets/59971320-3334-412f-9c50-1553ed4789d3)
+
 
 -Chackout Page
-![chackout](https://github.com/user-attachments/assets/1cd11a3d-a7e6-4402-a1c8-ec2b74ff4da8)
-![checkout](https://github.com/user-attachments/assets/d384a747-0321-4e51-a098-4efe24b35277)
+![checkout](https://github.com/user-attachments/assets/e8058268-a16b-4fd7-b960-408f98ac5d61)
+![checkout](https://github.com/user-attachments/assets/444f9cc3-2571-4bff-9795-a5bf90627a28)
+![checkout](https://github.com/user-attachments/assets/0c54fe2a-01f3-443a-8f8e-69a28f097a11)
+![checkout](https://github.com/user-attachments/assets/489a1f51-e9e2-4a6b-9d52-89bbea2354ab)
+![checkout](https://github.com/user-attachments/assets/6712f8cc-6436-4194-b8de-3556821b7af7)
+
+
 
 -My Order Page
-![order](https://github.com/user-attachments/assets/1d2dd313-6748-48ed-9ae3-a0972d834344)
+![My-order](https://github.com/user-attachments/assets/4f85a64a-7cdc-4be9-b560-e729c123c0c4)
 
 -Order Details Page
-![order-details](https://github.com/user-attachments/assets/5b8c361e-ed0b-4a91-a29d-9017594f77a3)
+![order-details](https://github.com/user-attachments/assets/9d38c8c9-619a-422b-b699-9cd6791caba9)
+
 
 ## Seller
 - Seller Login Page
