@@ -9,4 +9,8 @@ export interface Cart {
      productCategory: string;
      productImage?:File
      productDescription: string;
+     subtotal: number;
+     discount:number;
+     shipping: number;
+     totalPrice: number;
  }

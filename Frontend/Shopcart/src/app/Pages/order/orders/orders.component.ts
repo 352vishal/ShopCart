@@ -3,8 +3,6 @@ import { Order } from '../../../Core/Model/order';
 import { OrderService } from '../../../Core/Services/Order/order.service';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import { CartService } from '../../../Core/Services/Cart/cart.service';
-import { Cart } from '../../../Core/Model/cart';
 
 @Component({
   selector: 'app-orders',

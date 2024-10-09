@@ -1,6 +1,5 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { CartService } from '../../../Core/Services/Cart/cart.service';
-import { priceSummary } from '../../../Core/Model/priceSummary';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { isPlatformBrowser } from '@angular/common';
 import { Order } from '../../../Core/Model/order';
@@ -54,16 +53,8 @@ export class CheckoutComponent {
   // total price propertie
   totalPrice: Order[] | undefined;
 
-  // Cart Product Summary Details Propertie
-  priceSummary: priceSummary = {
-    price: 0,
-    discount: 0,
-    shipping: 0,
-    totalPrice: 0,
-  };
-
   // Product Summary Details
-    productSummary: Cart = {
+  productSummary: Cart = {
       _id: '',
       userId: '',
       productName: '',
@@ -73,8 +64,12 @@ export class CheckoutComponent {
       productCategory: '',
       productImage: undefined,
       productDescription: '',
-      productId: ''
-    };
+      productId: '',
+      subtotal: 0,
+      discount: 0,
+      shipping: 0,
+      totalPrice: 0,
+  };
 
   constructor(
     private cart: CartService,
@@ -95,12 +90,6 @@ export class CheckoutComponent {
       result.forEach((item) => {
         price += item.productPrice * item.productQuantity;
       });
-      this.priceSummary = {
-        price,
-        discount: 100,
-        shipping: 30,
-        totalPrice: price + 30 - 100,
-      };
       this.productSummary = {
         _id: '',
         userId: '',
@@ -111,7 +100,11 @@ export class CheckoutComponent {
         productCategory: this.productSummary.productCategory = this.CartData[0].productCategory,
         productImage: this.productSummary.productImage = this.CartData[0].productImage,
         productDescription: this.productSummary.productDescription = this.CartData[0].productDescription,
-        productId: ''
+        productId: '',
+        subtotal: price,
+        discount: 100,
+        shipping: 30,
+        totalPrice: price + 30 - 100,
       };
     });
   }
@@ -119,13 +112,13 @@ export class CheckoutComponent {
   // Order details post on mongo database
   orderNowProduct(data: any) {
     let userId = this.userPayload._id;
-    if (this.priceSummary.totalPrice) {
+    if (this.productSummary.totalPrice) {
     let orderData: Order = {
       ...data,
-      price: this.priceSummary.price,
-      totalPrice: this.priceSummary.totalPrice,
-      shipping: this.priceSummary.shipping,
-      discount: this.priceSummary.discount,
+      price: this.productSummary.productPrice,
+      totalPrice: this.productSummary.totalPrice,
+      shipping: this.productSummary.shipping,
+      discount: this.productSummary.discount,
       productName: this.productSummary.productName,
       productImage: this.productSummary.productImage,
       productDescription: this.productSummary.productDescription,

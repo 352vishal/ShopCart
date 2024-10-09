@@ -23,6 +23,18 @@ const cartSchema = new mongoose.Schema({
     productDescription: {
         type: String
     },
+    subtotal: {
+        type: String
+    },
+    discount: {
+        type: String
+    },
+    shipping: {
+        type: String
+    },
+    totalPrice: {
+        type: String
+    },
     userId: {
         type: String
     }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../../Core/Services/Cart/cart.service';
-import { priceSummary } from '../../../Core/Model/priceSummary';
 import { Router } from '@angular/router';
 import { Cart } from '../../../Core/Model/cart';
 import { MessageService } from 'primeng/api';
@@ -16,8 +15,18 @@ export class CartComponent {
 CartData: Cart[] | undefined;
 
 // Cart Product Summary Details Propertie
-priceSummary: priceSummary= {
-  price: 0,
+priceSummary: Cart= {
+  _id: '',
+  userId: '',
+  productId: '',
+  productName: '',
+  productPrice: 0,
+  productColour: '',
+  productQuantity: 0,
+  productCategory: '',
+  productImage: undefined,
+  productDescription: '',
+  subtotal: 0,
   discount: 0,
   shipping: 0,
   totalPrice: 0
@@ -38,7 +47,17 @@ priceSummary: priceSummary= {
         price += item.productPrice * item.productQuantity;
       })
       this.priceSummary = {
-        price,
+        _id: '',
+        userId: '',
+        productId: '',
+        productName: '',
+        productPrice: 0,
+        productColour: '',
+        productQuantity: 0,
+        productCategory: '',
+        productImage: undefined,
+        productDescription: '',
+        subtotal: price,
         discount: 100,
         shipping: 30,
         totalPrice: price + 30 - 100

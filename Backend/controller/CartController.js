@@ -13,7 +13,11 @@ const postUserCartProduct =  async (req, res) => {
       productQuantity: req.body.productQuantity,
       productCategory: req.body.productCategory,
       productImage: req.body.productImage,
-      productDescription: req.body.productDescription
+      productDescription: req.body.productDescription,
+      subtotal: req.body.subtotal,
+      discount: req.body.discount,
+      shipping: req.body.shipping,
+      totalPrice: req.body.totalPrice,
     });
     await cartList.save();
 
@@ -65,4 +69,19 @@ const deleteCartProducts = async (req, res) => {
   }
 };  
 
-module.exports = {postUserCartProduct, getSingleCartProductId, deleteCartProducts,getUserCartProducts}
+// Product Quantity update
+
+const updateProductQuantity = async (req, res) => {
+  try {
+    const updatedProduct = await Cart.findByIdAndUpdate(
+      req.params.userId, { 
+        productQuantity: req.body.productQuantity, 
+        productPrice: req.body.productPrice
+      }, { new: true });
+    res.json(updatedProduct);
+  } catch (error) {
+    res.json({ message: error });
+  }
+};
+
+module.exports = {postUserCartProduct, getSingleCartProductId, deleteCartProducts,getUserCartProducts, updateProductQuantity}

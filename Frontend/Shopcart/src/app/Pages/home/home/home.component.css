@@ -333,6 +333,7 @@ button.normal{
 }
 
 #sm-banner .banner-box{
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -347,7 +348,7 @@ button.normal{
 }
 
 #sm-banner .banner-box2{
-  background-image: url(https://i.postimg.cc/gJ7FHxHv/b10.jpg)
+  background-image: url(https://i.ibb.co/thvF1LS/image-removebg-preview.jpg)
 }
 
 #sm-banner{
@@ -357,26 +358,26 @@ button.normal{
 }
 
 #sm-banner h4{
-  color: #fff;
+  color: black;
   font-size: 20px;
   font-weight: 300;
 }
 
 #sm-banner h2{
-  color: #fff;
+  color: #552020;
   font-size: 32px;
   font-weight: 800;
 }
 
 #sm-banner span{
-  color: white;
+  color: black;
   font-size: 16px;
   font-weight: 500;
   padding-bottom: 16px;
 }
 
 button.white{
-  color: white;
+  color: black;
   padding: 15px 30px;
   font-weight: 400;
   font-size: 14px;
@@ -413,7 +414,8 @@ button.white{
   background-position: center;
   background-size: cover;
   padding: 30px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  border-radius:12px
 }
 
 #banner3 h2{
@@ -435,6 +437,27 @@ button.white{
 #banner3 .banner-img3{
    background-image: url(https://i.postimg.cc/m2th49nG/b18.jpg)
 }
+
+#banner3 .img-1{
+  background-image: url(https://i.ibb.co/7GWWTFf/shopping-1-removebg-preview.jpg)
+}
+#banner3 .img-2{
+  background-image: url(https://wallpaper.dog/large/5521891.jpg)
+}
+#banner3 .img-3{
+  background-image: url(https://wallpaper.dog/large/5521895.jpg)
+}
+
+#banner3 .img-4{
+  background-image: url(https://i.ibb.co/fvDS6Lq/5521878-removebg-preview.jpg)
+}
+#banner3 .img-5{
+  background-image: url(https://i.ibb.co/WvcDDC8/5521748-removebg-preview.jpg)
+}
+#banner3 .img-6{
+  background-image: url(https://wallpaper.dog/large/5521705.jpg)
+}
+
 
 #newsletter  {
   display: flex;

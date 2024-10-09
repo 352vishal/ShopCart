@@ -153,9 +153,14 @@ export class ProductDetailsComponent {
         let userId = this.userPayload._id;
         let cartData: Cart = {
           ...this.productData,
+          subtotal: this.productData.productPrice * this.productQuantity,
+          discount: 100,
+          shipping: 30,
+          totalPrice: this.productData.productPrice * this.productQuantity + 30 - 100,
           userId,
         };
         console.warn(cartData);
+        this.removeCart = true;
         this.cart.addToCart(cartData).subscribe((result) => {
           if (result) {
             this.cart.getCartList(userId);
@@ -165,9 +170,10 @@ export class ProductDetailsComponent {
               detail: 'Product added in the cart',
               key: 'tl',
             });
-            this.removeCart = true;
+            
           }
         });
+        this.removeCart = true;
       }
     }
   }

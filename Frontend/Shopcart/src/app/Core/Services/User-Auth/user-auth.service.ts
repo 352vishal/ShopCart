@@ -76,8 +76,12 @@ provided details. save on MongoDb Database*/
               let cartData:Cart={
                 ...product,
                 productId:product.id,
-                userId
-              }
+                userId,
+                subtotal: product.productPrice * product.productQuantity,
+                discount: 100,
+                shipping: 30,
+                totalPrice: product.productPrice * product.productQuantity + 30 - 100,
+                }
               setTimeout(() => {
                 this.cart.addToCart(cartData).subscribe((result)=>{
                   if(result){
